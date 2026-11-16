@@ -1,93 +1,55 @@
-/* ══════════ KATEGORIEN-TABS (DASHBOARD) ══════════ */
-.dash-cat-bar{
-  display:flex;gap:8px;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);
-  padding:6px;border-radius:99px;border:1px solid var(--line);
-  box-shadow:var(--sh2);margin:-28px auto 36px;max-width:980px;position:relative;z-index:20;
-  overflow-x:auto;-webkit-overflow-scrolling:touch;
-}
-.dash-cat-btn{
-  flex:1;padding:10px 18px;border-radius:99px;font-size:13.5px;font-weight:500;
-  color:var(--muted);transition:.2s;display:flex;align-items:center;justify-content:center;
-  gap:8px;white-space:nowrap;min-width:max-content;
-}
-.dash-cat-btn:hover{color:var(--navy);background:rgba(27,49,69,.04)}
-.dash-cat-btn.on{background:var(--navy);color:#fff;font-weight:600;box-shadow:var(--sh1)}
-.dash-cat-btn .num{
-  width:20px;height:20px;border-radius:50%;background:rgba(178,145,78,.25);color:var(--gold);
-  font-size:11px;display:flex;align-items:center;justify-content:center;font-weight:bold;
-}
-.dash-cat-btn.on .num{background:var(--gold);color:var(--navy)}
-.dash-pane{display:none;animation:fadeIn .25s ease-out}
-.dash-pane.on{display:block}
-@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+/* ══════════════════════════════════════════════════════════════════════
+   ELVARIA · Dashboard Category Bar, Roadmap & Gateway Cards
+   ══════════════════════════════════════════════════════════════════════ */
 
-/* ══════════ HERO ANSWER & CONFIGURABLE BOX ══════════ */
-.hero-answer{
-  background:linear-gradient(135deg,#111C24 0%,#1B3145 100%);color:var(--cream);
-  border-radius:var(--r);padding:36px;display:flex;justify-content:space-between;
-  align-items:center;gap:30px;box-shadow:var(--sh2);margin-bottom:28px;flex-wrap:wrap;
+/* ── Category Tabs Bar (Glassmorphism Pill Bar) ── */
+.dash-cat-bar {
+  display: flex; gap: 8px; background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  padding: 6px; border-radius: var(--r-pill); border: 1px solid var(--border-hairline);
+  box-shadow: var(--sh-md); margin: -28px auto 36px; max-width: 960px;
+  position: relative; z-index: 20; overflow-x: auto;
 }
-.ha-l{max-width:720px}
-.ha-kick{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-l);display:block;margin-bottom:8px}
-.ha-big{font-family:Georgia,serif;font-size:clamp(20px,2.8vw,28px);color:#fff;line-height:1.3;margin-bottom:12px}
-.ha-big em{font-style:italic;color:var(--gold-l)}
-.ha-sub{font-size:14px;color:#C3D0DA;line-height:1.55}
-.ha-r{flex-shrink:0}
-.ha-go{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:20px 24px;text-align:left;transition:.2s;display:block}
-.ha-go:hover{background:rgba(255,255,255,.16);border-color:var(--gold-l);transform:translateY(-2px)}
-.ha-go span{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--gold-l);margin-bottom:4px}
-.ha-go b{display:block;font-size:16px;color:#fff;margin-bottom:2px}
-.ha-go i{display:block;font-size:12px;color:#9FB3C2;font-style:normal}
-
-/* ══════════ LIVE CONFIGURATION BAR (DYNAMISCH & REAKTIV) ══════════ */
-.dyn-config-box{
-  background:#fff;border:1px solid var(--line);border-radius:var(--r);
-  padding:22px 28px;margin-bottom:28px;box-shadow:var(--sh1);
+.dash-cat-btn {
+  flex: 1; padding: 10px 18px; border-radius: var(--r-pill); font-size: 13px; font-weight: 500;
+  color: var(--ink-secondary); transition: all 0.18s ease; display: flex; align-items: center; justify-content: center;
+  gap: 8px; white-space: nowrap; min-width: max-content;
 }
-.dyn-cfg-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:10px}
-.dyn-cfg-head h3{font-size:16px;color:var(--navy);display:flex;align-items:center;gap:8px}
-.dyn-cfg-head span{font-size:12px;color:var(--muted)}
-.dyn-cfg-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
-.cfg-group{display:flex;align-items:center;gap:6px;background:var(--cream2);padding:4px 6px;border-radius:99px;border:1px solid var(--line)}
-.cfg-lbl{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding:0 6px;font-weight:600}
-.cfg-pill{padding:5px 14px;border-radius:99px;font-size:12px;color:var(--muted);transition:.15s;background:transparent}
-.cfg-pill:hover{color:var(--navy)}
-.cfg-pill.on{background:var(--navy);color:#fff;font-weight:600;box-shadow:var(--sh1)}
-
-/* ══════════ DYNAMIC KEY METRICS CARDS ══════════ */
-.kpi-dyn-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:32px}
-.kpi-dyn-card{
-  background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px;
-  box-shadow:var(--sh1);transition:.15s;display:flex;flex-direction:column;justify-content:space-between;
+.dash-cat-btn:hover { color: var(--navy-deep); background: rgba(13, 22, 31, 0.04); }
+.dash-cat-btn.on { background: var(--navy-deep); color: #FFFFFF; font-weight: 600; box-shadow: var(--sh-sm); }
+.dash-cat-btn .num {
+  width: 20px; height: 20px; border-radius: 50%; background: var(--gold-subtle); color: var(--gold-accent);
+  font-size: 11px; display: flex; align-items: center; justify-content: center; font-weight: 600;
 }
-.kpi-dyn-card:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:var(--sh2)}
-.kpi-dyn-card.highlight{border-color:rgba(197,168,105,.5);background:linear-gradient(180deg,#fff 0%,#FDFCF9 100%)}
-.kpi-dyn-lbl{font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:6px;font-weight:600}
-.kpi-dyn-val{font-family:Georgia,serif;font-size:26px;color:var(--navy);line-height:1.15;margin-bottom:6px}
-.kpi-dyn-val.gold{color:var(--gold)}
-.kpi-dyn-val.green{color:var(--green)}
-.kpi-dyn-sub{font-size:12px;color:var(--muted);line-height:1.4}
+.dash-cat-btn.on .num { background: var(--gold-accent); color: var(--navy-deep); }
 
-/* ══════════ ROADMAP, STATUSBAR & NAVCARDS ══════════ */
-.statusbar{display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px 24px;margin-bottom:28px;box-shadow:var(--sh1);flex-wrap:wrap;gap:14px}
-.sb-txt b{font-size:15px;color:var(--navy);display:block}
-.sb-txt span{font-size:13px;color:var(--muted)}
-.roadmap{display:flex;flex-direction:column;gap:12px;margin:20px 0 40px}
-.sq{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 22px;box-shadow:var(--sh1);cursor:pointer;transition:.15s}
-.sq:hover{border-color:var(--gold-acc);box-shadow:var(--sh2)}
-.sq.done{border-color:var(--green);background:linear-gradient(180deg,#fff 0%,#F4F8F6 100%)}
-.sq-h{display:flex;align-items:center;justify-content:space-between;gap:14px}
-.sq-h b{font-size:16px;color:var(--navy)}
-.sq-b{display:none;margin-top:14px;padding-top:14px;border-top:1px solid rgba(0,0,0,.06);font-size:13.5px;color:var(--ink);line-height:1.55}
-.sq.open .sq-b{display:block}
-.simple{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin:20px 0 40px}
-.sim-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--sh1)}
-.sim-card b{font-size:15px;color:var(--navy);display:block;margin-bottom:8px}
-.sim-card p{font-size:13px;color:var(--muted);line-height:1.5}
-.navcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:24px 0 40px}
-.navcard{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px;text-align:left;cursor:pointer;box-shadow:var(--sh1);transition:.2s;display:flex;flex-direction:column}
-.navcard:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:var(--sh2)}
-.nc-num{font-family:Georgia,serif;font-size:22px;color:var(--gold);margin-bottom:10px}
-.navcard b{font-size:16px;color:var(--navy);margin-bottom:8px}
-.navcard p{font-size:13px;color:var(--muted);line-height:1.5;flex-grow:1;margin-bottom:14px}
-.nc-go{font-size:12.5px;font-weight:600;color:var(--navy2);display:flex;align-items:center;gap:4px}
+.dash-pane { display: none; opacity: 0; transform: translateY(4px); transition: opacity 0.2s ease, transform 0.2s ease; }
+.dash-pane.on { display: block; opacity: 1; transform: translateY(0); }
+
+/* ── Statusbar & Simple FAQs ── */
+.statusbar {
+  display: flex; align-items: center; justify-content: space-between; background: var(--bg-card);
+  border: 1px solid var(--border-hairline); border-radius: var(--r-md); padding: 18px 24px;
+  margin-bottom: 24px; box-shadow: var(--sh-sm); flex-wrap: wrap; gap: 14px;
+}
+.sb-txt b { font-size: 15px; color: var(--navy-deep); display: block; }
+.sb-txt span { font-size: 13px; color: var(--ink-secondary); }
+
+.simple { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin: 20px 0 40px; }
+.sim-card { background: var(--bg-card); border: 1px solid var(--border-hairline); border-radius: var(--r-md); padding: 20px; box-shadow: var(--sh-sm); }
+.sim-card b { font-size: 15px; color: var(--navy-deep); display: block; margin-bottom: 8px; }
+.sim-card p { font-size: 13px; color: var(--ink-secondary); line-height: 1.5; }
+
+/* ── Gateway Cards (Vier Wege durch deinen Plan) ── */
+.navcards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin: 24px 0 40px; }
+.navcard {
+  background: var(--bg-card); border: 1px solid var(--border-hairline); border-radius: var(--r-lg);
+  padding: 26px 24px; text-align: left; cursor: pointer; box-shadow: var(--sh-sm);
+  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.4, 1); display: flex; flex-direction: column;
+}
+.navcard:hover { transform: translateY(-3px); border-color: var(--gold-accent); box-shadow: var(--sh-md); }
+.nc-num { font-family: Georgia, serif; font-size: 22px; color: var(--gold-accent); margin-bottom: 10px; line-height: 1; }
+.navcard b { font-size: 16px; color: var(--navy-deep); margin-bottom: 8px; font-weight: 600; }
+.navcard p { font-size: 13px; color: var(--ink-secondary); line-height: 1.5; flex-grow: 1; margin-bottom: 16px; }
+.nc-go { font-size: 12.5px; font-weight: 600; color: var(--navy-muted); display: flex; align-items: center; gap: 4px; }
+.navcard:hover .nc-go { color: var(--gold-accent); }

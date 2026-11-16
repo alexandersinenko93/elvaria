@@ -3,8 +3,8 @@
  */
 
 /* ── Navigation Buttons ── */
-$$('#hnav button[data-v]').forEach(b => {
-  b.onclick = () => showView(b.dataset.v, false);
+$$('#hnav button[data-v], #hnav button[data-sub]').forEach(b => {
+  b.onclick = () => showView(b.dataset.v || b.dataset.sub, false);
 });
 
 const srcNavBtn = $('.btn-sources-nav');
@@ -22,7 +22,7 @@ if (backBtn) {
     const y = RETURN_Y;
     RETURN_Y = y;
     showView(v, false);
-    setHash(v === 'dash' ? '#/dash' : '#/' + v, true);
+    setHash(v === 'dash' ? '#/start' : '#/' + (v === 'wiz' ? 'assistent' : v === 'plan' ? 'businessplan' : v), true);
   };
 }
 
@@ -148,26 +148,27 @@ const qI = $('#qI'); if (qI) qI.oninput = renderI;
 const qF = $('#qF'); if (qF) qF.oninput = renderFAQ;
 
 /* ── Dashboard Category Tabs Switcher ── */
-function bindDashTabs() {
+function switchDashTab(target) {
   const tabMap = {
     uebersicht: 'dashPaneUebersicht',
     roadmap: 'dashPaneRoadmap',
     faq: 'dashPaneFaq',
     module: 'dashPaneModule'
   };
+  $$('.dash-cat-btn').forEach(b => {
+    const on = b.dataset.dashTab === target;
+    b.classList.toggle('on', on);
+    b.setAttribute('aria-selected', on ? 'true' : 'false');
+  });
+  Object.keys(tabMap).forEach(key => {
+    const pane = document.getElementById(tabMap[key]);
+    if (pane) pane.classList.toggle('on', key === target);
+  });
+}
+
+function bindDashTabs() {
   $$('.dash-cat-btn').forEach(btn => {
-    btn.onclick = () => {
-      const target = btn.dataset.dashTab;
-      $$('.dash-cat-btn').forEach(b => {
-        const on = b === btn;
-        b.classList.toggle('on', on);
-        b.setAttribute('aria-selected', on ? 'true' : 'false');
-      });
-      Object.keys(tabMap).forEach(key => {
-        const pane = document.getElementById(tabMap[key]);
-        if (pane) pane.classList.toggle('on', key === target);
-      });
-    };
+    btn.onclick = () => switchDashTab(btn.dataset.dashTab);
   });
 }
 
@@ -182,8 +183,6 @@ function bindSort() {
     renderP();
   });
 }
-
-window.addEventListener('hashchange', applyState);
 
 /* ── Initialisierung ── */
 bindSort();
