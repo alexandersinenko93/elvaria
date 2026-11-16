@@ -3,18 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Elvaria · Interaktiver Businessplan</title>
-<meta name="description" content="14 Gutschein-Plattformen, 40 Geschäftsideen, 36 Antworten — als interaktiver Businessplan & Szenarien-Rechner für Yoga als Event.">
-<meta property="og:title" id="ogT" content="Elvaria · Interaktiver Businessplan">
-<meta property="og:description" id="ogD" content="Jede Kachel ein Weg, jeder Weg ein Tutorial.">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="de_DE">
-<meta name="theme-color" content="#111C24">
+<title>Elvaria · Interaktiver Businessplan · Start</title>
+<meta name="description" content="Interaktiver Businessplan & Szenarien-Rechner für Yoga als Event in Hamburg.">
 <link rel="stylesheet" href="src/css/base.css">
-<link rel="stylesheet" href="src/css/cards.css">
-<link rel="stylesheet" href="src/css/guides.css">
 <link rel="stylesheet" href="src/css/dashboard.css">
-<link rel="stylesheet" href="src/css/plan_wizard.css">
 <link rel="stylesheet" href="src/css/sources_drawer.css">
 <link rel="stylesheet" href="src/css/sources_modal.css">
 </head>
@@ -22,25 +14,25 @@
 <a href="#mainInhalt" class="sr" id="skip">Zum Hauptinhalt springen</a>
 <header>
   <div class="hwrap">
-    <div class="brand"><b>ELVARIA</b><span>Businessplan · Yoga als Event</span></div>
+    <a href="index.html" class="brand"><b>ELVARIA</b><span>Businessplan · Yoga als Event</span></a>
     <nav class="hnav" id="hnav">
-      <button data-v="dash" class="on">Start</button>
-      <button data-v="wiz">Assistent</button>
-      <button data-v="plan">Businessplan</button>
-      <button data-v="anhang">Anhang</button>
-      <button type="button" class="btn-sources-nav" title="Quellen- und Rechtsdatenbank">Quellen &amp; Recht</button>
+      <a href="index.html" class="on">Start</a>
+      <a href="assistent.html">Assistent</a>
+      <a href="businessplan.html">Businessplan</a>
+      <a href="anhang.html">Anhang</a>
+      <button type="button" class="btn-sources-nav" onclick="ELVARIA_SOURCES.openExplorer()">Quellen &amp; Recht</button>
     </nav>
     <div class="hsearch">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <input id="qG" type="search" placeholder="Alles durchsuchen …" autocomplete="off" aria-label="Alles durchsuchen" aria-expanded="false" aria-controls="gList">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="qG" type="search" placeholder="Alles durchsuchen …" autocomplete="off" aria-label="Alles durchsuchen">
       <kbd>/</kbd>
       <div id="gPanel" hidden><div id="gList"></div></div>
     </div>
-    <div class="hprog"><span class="dot" aria-hidden="true"></span><span id="hprogTxt">0 Schritte</span></div>
+    <div class="hprog"><span class="dot"></span><span id="hprogTxt">0 Schritte</span></div>
   </div>
 </header>
 
-<div class="hero" id="hero">
+<div class="hero">
   <div class="hin">
     <div class="eyebrow">Elvaria · Hamburg-Eimsbüttel</div>
     <h1>Der Assistent fragt,<br><em>dein Businessplan antwortet.</em></h1>
@@ -48,8 +40,8 @@
     <div class="metrics">
       <div class="metric"><b id="mW">0<span style="font-size:14px;opacity:.6">/12</span></b><span>Assistent</span></div>
       <div class="metric"><b id="mS2">0<span style="font-size:14px;opacity:.6">/7</span></b><span>Startguide</span></div>
-      <div class="metric"><b>6</b><span>Kapitel, einfach</span></div>
-      <div class="metric"><b id="mP">14</b><span>Kanäle im Anhang</span></div>
+      <div class="metric"><b>6</b><span>Kapitel</span></div>
+      <div class="metric"><b>14</b><span>Kanäle</span></div>
       <div class="metric wide">
         <div class="mrow"><b id="mS">0</b><span class="pct" id="mPct">0 %</span></div>
         <div class="mbar"><i id="heroBar" style="width:0%"></i></div>
@@ -60,14 +52,8 @@
   </div>
 </div>
 
-<div id="plProg" aria-hidden="true"></div>
-<div class="sr" id="announce" aria-live="polite" aria-atomic="true"></div>
-<div id="toast" role="status" aria-live="polite"></div>
-
-<main id="mainInhalt" tabindex="-1">
-<!-- ═══════════ DASHBOARD ═══════════ -->
-<section class="view on" id="v-dash">
-  <div class="dash-cat-bar" role="tablist" aria-label="Kategorien Übersicht">
+<main id="mainInhalt" class="page-wrap" tabindex="-1">
+  <div class="dash-cat-bar" role="tablist">
     <button class="dash-cat-btn on" data-dash-tab="uebersicht" role="tab" aria-selected="true"><span class="num">1</span> Überblick &amp; Schnellstart</button>
     <button class="dash-cat-btn" data-dash-tab="roadmap" role="tab" aria-selected="false"><span class="num">2</span> 7-Schritte-Fahrplan</button>
     <button class="dash-cat-btn" data-dash-tab="faq" role="tab" aria-selected="false"><span class="num">3</span> Kurz erklärt (FAQ)</button>
@@ -76,18 +62,14 @@
 
   <div class="dash-pane on" id="dashPaneUebersicht">
     <div id="resume"></div>
-    <div class="hero-answer" id="answer">
+    <div class="hero-answer">
       <div class="ha-l">
         <span class="ha-kick">Das Wichtigste in einem Satz</span>
         <p class="ha-big" id="haSentence">Kurz gesagt: <em>ein Abend für eine Firma</em> bringt 1.510 €, <em>ein Abend für Einzelne</em> 439 €. Der Unterschied ist der Raum.</p>
-        <p class="ha-sub">Kein Fachwort ohne Erklärung. Der Assistent stellt dir zwölf Fragen, der Rechner kalkuliert live mit — und jedes Kapitel zeigt dir, was du daraus machst.</p>
+        <p class="ha-sub">Kein Fachwort ohne Erklärung. Der Assistent stellt dir zwölf Fragen, der Rechner kalkuliert live mit.</p>
       </div>
       <div class="ha-r">
-        <button class="ha-go" data-wiz="1">
-          <span>Assistent starten</span>
-          <b>12 Fragen · 4 Minuten</b>
-          <i>kein Vorwissen nötig</i>
-        </button>
+        <a href="assistent.html" class="ha-go"><span>Assistent starten</span><b>12 Fragen · 4 Minuten</b><i>kein Vorwissen nötig</i></a>
       </div>
     </div>
     <div id="dynKpiBox"></div>
@@ -95,180 +77,56 @@
 
   <div class="dash-pane" id="dashPaneRoadmap">
     <div class="statusbar" id="statusbar"></div>
-    <div class="sec"><span class="n">START</span><h2>Der Weg in sieben Schritten</h2><span class="r">Der Reihe nach. Oben zuerst.</span></div>
+    <div class="sec"><span class="n">START</span><h2>Der Weg in sieben Schritten</h2><span class="r">Oben zuerst</span></div>
     <div class="roadmap" id="roadmap"></div>
   </div>
 
   <div class="dash-pane" id="dashPaneFaq">
-    <div class="sec"><span class="n">?</span><h2>Kurz erklärt, bevor du losgehst</h2><span class="r">Die Fragen, die am Anfang kommen</span></div>
+    <div class="sec"><span class="n">?</span><h2>Kurz erklärt, bevor du losgehst</h2><span class="r">Häufige Fragen</span></div>
     <div class="simple" id="simple"></div>
   </div>
 
   <div class="dash-pane" id="dashPaneModule">
     <div class="sec"><span class="n">→</span><h2>Vier Wege durch deinen Plan</h2><span class="r">Gezielt einsteigen</span></div>
     <div class="navcards">
-      <button class="navcard" data-view="wiz"><span class="nc-num">01</span><b>Der Assistent · 4 Minuten</b><p>Zwölf Fragen, eine nach der anderen. Am Ende steht dein eigener Plan mit deinen Zahlen — zum Ausdrucken.</p><span class="nc-go">Fragen starten →</span></button>
-      <button class="navcard" data-view="plan"><span class="nc-num">02</span><b>Der Businessplan · 20 Minuten</b><p>Sechs Kapitel in einfacher Sprache: was du verkaufst, wer kauft, was es kostet, was übrig bleibt, was schiefgehen kann.</p><span class="nc-go">Zum Plan →</span></button>
-      <button class="navcard" data-view="anhang"><span class="nc-num">03</span><b>Der Anhang &amp; Kanäle</b><p>14 Kanäle mit Ampel und Tutorial, 40 Ideen, 36 Antworten — alles, was die Kapitel belegen.</p><span class="nc-go">Öffnen →</span></button>
-      <button class="navcard" data-view="plan" data-scroll="meilensteine"><span class="nc-num">04</span><b>Die Meilensteine</b><p>Sieben Etappen von Woche 1 bis Monat 12. Abhakbar, der Stand bleibt gespeichert.</p><span class="nc-go">Abhaken →</span></button>
+      <a href="assistent.html" class="navcard"><span class="nc-num">01</span><b>Der Assistent · 4 Minuten</b><p>Zwölf Fragen. Am Ende steht dein Plan — zum Ausdrucken.</p><span class="nc-go">Fragen starten →</span></a>
+      <a href="businessplan.html" class="navcard"><span class="nc-num">02</span><b>Der Businessplan · 20 Minuten</b><p>Sechs Kapitel: Angebot, Kunden, Kosten, Ertrag, Risiken.</p><span class="nc-go">Zum Plan →</span></a>
+      <a href="anhang.html" class="navcard"><span class="nc-num">03</span><b>Der Anhang &amp; Kanäle</b><p>14 Kanäle mit Ampel, 40 Ideen, 36 Antworten.</p><span class="nc-go">Öffnen →</span></a>
+      <a href="businessplan.html#meilensteine" class="navcard"><span class="nc-num">04</span><b>Die Meilensteine</b><p>Sieben Etappen von Woche 1 bis Monat 12.</p><span class="nc-go">Abhaken →</span></a>
     </div>
   </div>
-</section>
-
-<!-- ═══════════ ASSISTENT ═══════════ -->
-<section class="view" id="v-wiz">
-  <div class="wizhead">
-    <span class="eyebrow">Assistent · 12 kurze Fragen · dauert 4 Minuten</span>
-    <h1>Beantworte Fragen,<br><em>dein Businessplan schreibt sich von selbst.</em></h1>
-    <p>Du musst nichts über Businesspläne wissen. Jede Frage erklärt, warum sie kommt — und was die Antwort für dein Geld bedeutet.</p>
-    <div class="wizbar">
-      <b id="wizCount">Schritt 1 von 5</b>
-      <div class="pbar" role="progressbar" aria-label="Fortschritt im Assistenten" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="wizFill" style="width:0%"></i></div>
-      <button class="skipp" id="wizJump">zum fertigen Plan</button>
-    </div>
-  </div>
-  <div class="wizwrap">
-    <div>
-      <div class="wizsteps" id="wizSteps" role="list" aria-label="Fragen des Assistenten"></div>
-      <div id="wizCard"></div>
-    </div>
-    <aside class="wizlive" id="wizLive" aria-live="polite"></aside>
-  </div>
-</section>
-
-<!-- ═══════════ BUSINESSPLAN ═══════════ -->
-<section class="view" id="v-plan">
-  <div class="plhero">
-    <span class="eyebrow">Businessplan · Elvaria · Hamburg-Eimsbüttel · Stand 12.11.2026</span>
-    <h1>Yoga als Event, nicht als Kursplan.<br><em>Sechs Kapitel, ein Rechner.</em></h1>
-    <p>Alle Zahlen stammen aus dem recherchierten Dossier. Was du an den Reglern drehst, rechnet live nach — Umsatz, Kosten, Deckungsbeitrag, Break-even.</p>
-    <div class="plmeta">
-      <div><span>Rechtsform</span><b id="pmLegal">Einzelunternehmen</b></div>
-      <div><span>Startkapital</span><b id="pmCap">5.560 €</b></div>
-      <div><span>Fixkosten / Monat</span><b id="pmFix">1.450 €</b></div>
-      <div><span>Kapazität</span><b>8 Events</b></div>
-      <div><span>Ergebnis v. Steuer</span><b id="pmRes">7.433 €</b></div>
-    </div>
-  </div>
-  <div class="plkpi" id="plKpi"></div>
-  <div class="plwrap">
-    <nav class="plnav" id="plNav" aria-label="Kapitel des Businessplans"></nav>
-    <div class="plbody" id="plBody"></div>
-  </div>
-</section>
-
-<!-- ═══════════ ANHANG ═══════════ -->
-<section class="view" id="v-anhang">
-  <div class="sec"><span class="n">A</span><h2>Anhang zum Businessplan</h2><span class="r">Belege, Kanäle, Ideen, Fragen</span></div>
-  <div class="filters" id="anbar" role="tablist" aria-label="Anhang">
-    <button class="chip on" data-pane="plat" role="tab" aria-selected="true">Kanäle &amp; Tutorials</button>
-    <button class="chip" data-pane="ideen" role="tab" aria-selected="false">Ideen</button>
-    <button class="chip" data-pane="faq" role="tab" aria-selected="false">Antworten</button>
-  </div>
-  <div class="anpane on" id="anPlat" role="tabpanel">
-    <div class="sec"><span class="n">A·1</span><h2>Die 14 Wege hinein</h2><span class="r" id="cP"></span></div>
-    <div class="filters" id="fP">
-      <div class="fsec"><span class="fsec-l">Klasse</span>
-        <button class="chip on" data-k="cls" data-v="all">Alle</button><button class="chip" data-k="cls" data-v="A">A · Code</button><button class="chip" data-k="cls" data-v="B">B · Karte</button><button class="chip" data-k="cls" data-v="C">C · Rabatt</button>
-      </div>
-      <div class="fsec"><span class="fsec-l">Welle</span>
-        <button class="chip on" data-k="w" data-v="all">Alle</button><button class="chip" data-k="w" data-v="1">Welle 1</button><button class="chip" data-k="w" data-v="2">Welle 2</button><button class="chip" data-k="w" data-v="3">Welle 3</button><button class="chip" data-k="w" data-v="no">Später</button>
-      </div>
-      <button class="chip" data-k="easy" data-v="1">Ohne Terminal</button><button class="chip" data-k="free" data-v="1">Ohne Fixkosten</button>
-      <div class="fsec"><span class="fsec-l">Sortierung</span>
-        <button class="chip on" data-sort="gruppe" aria-pressed="true">Nach Aufnahme</button><button class="chip" data-sort="welle" aria-pressed="false">Nach Welle</button>
-      </div>
-      <div class="fsearch"><input id="qP" type="search" placeholder="Kanäle filtern …" aria-label="Kanäle filtern"><span id="nP" style="font-size:11px;color:var(--muted)"></span></div>
-      <button class="chip" id="resetP">Filter zurücksetzen</button>
-    </div>
-    <div class="grid" id="gridP"></div>
-    <p id="eP" class="empty" style="display:none">Kein Kanal passt zu diesem Filter.</p>
-  </div>
-
-  <div class="anpane" id="anIdeen" role="tabpanel" style="display:none">
-    <div class="sec"><span class="n">A·2</span><h2>40 Geschäftsideen</h2><span class="r" id="cI"></span></div>
-    <div class="filters" id="fI">
-      <div class="fsec"><span class="fsec-l">Ring</span>
-        <button class="chip on" data-k="r" data-v="all">Alle</button><button class="chip" data-k="r" data-v="1">1 · Nebengeschäft</button><button class="chip" data-k="r" data-v="2">2 · Formate</button><button class="chip" data-k="r" data-v="3">3 · Produkte</button><button class="chip" data-k="r" data-v="4">4 · Modell</button>
-      </div>
-      <button class="chip" data-k="flag" data-v="emp">Empfohlen</button><button class="chip" data-k="flag" data-v="geld">Hoher Umsatz</button><button class="chip" data-k="flag" data-v="schnell">Schnell startbar</button><button class="chip" data-k="flag" data-v="box">Box-Formate</button><button class="chip" data-k="flag" data-v="cau">Vorsicht</button>
-      <div class="fsearch"><input id="qI" type="search" placeholder="Ideen filtern …" aria-label="Ideen filtern"><span id="nI" style="font-size:11px;color:var(--muted)"></span></div>
-      <button class="chip" id="resetI">Filter zurücksetzen</button>
-    </div>
-    <div class="grid" id="wrapI"></div>
-    <p id="eI" class="empty" style="display:none">Keine Idee passt zu diesem Filter.</p>
-  </div>
-
-  <div class="anpane" id="anFaq" role="tabpanel" style="display:none">
-    <div class="sec"><span class="n">A·3</span><h2>Antworten auf Fragen</h2><span class="r" id="cF"></span></div>
-    <div class="filters" id="fF"></div>
-    <div class="fsearch" style="margin-bottom:16px"><input id="qF" type="search" placeholder="Antworten filtern …" aria-label="Antworten filtern"><span id="nF" style="font-size:11px;color:var(--muted)"></span></div>
-    <div id="listF"></div>
-    <p id="eF" class="empty" style="display:none">Keine Frage passt zu diesem Filter.</p>
-  </div>
-</section>
-
-<!-- ═══════════ DETAIL VIEW ═══════════ -->
-<section class="view" id="v-detail">
-  <div class="dbar">
-    <button id="back"><span>←</span> Zurück</button>
-    <div class="dnav"><button id="prev"><span id="prevT"></span> ←</button><button id="next">→ <span id="nextT"></span></button></div>
-  </div>
-  <div class="dhead">
-    <div class="dkick" id="dKick"></div>
-    <h1 id="dH"></h1>
-    <p class="dsub" id="dP"></p>
-    <div class="dtags" id="dTags"></div>
-  </div>
-  <div class="seg" id="dSeg">
-    <button class="on" data-seg="quick">Kurzanleitung <span id="segQN"></span></button>
-    <button data-seg="deep">Deep-Guide <span id="segDN"></span></button>
-  </div>
-  <div class="dbody">
-    <div>
-      <div id="paneQuick">
-        <div class="dsteps">
-          <div class="dstep-h"><b id="dTutHead">Schritt für Schritt</b><span id="dNum"></span></div>
-          <div class="pbar" style="margin-bottom:18px"><i id="dBar" style="width:0%"></i></div>
-          <div id="dSteps"></div>
-        </div>
-      </div>
-      <div id="paneDeep" hidden><div id="dDeep"></div><div id="dCta2" style="margin-top:20px;display:flex;gap:10px"></div></div>
-      <div class="rel-wrap" id="dRel"></div>
-    </div>
-    <aside class="dside">
-      <div class="dside-sec" id="dFacts"></div>
-      <div class="dside-sec" id="dNotes"></div>
-      <div class="dside-sec" id="dCta"></div>
-    </aside>
-  </div>
-</section>
 </main>
 
-<!-- Scripts in exakter Abhängigkeits-Reihenfolge -->
 <script src="src/data/fallback_sources.js"></script>
 <script src="src/components/SourcesDrawer.js"></script>
 <script src="src/js/data/plan_model.js"></script>
 <script src="src/js/data/plan_chapters.js"></script>
 <script src="src/js/data/plan_wizard.js"></script>
 <script src="src/js/data/start_roadmap.js"></script>
-<script src="src/js/data/deep_guides_1.js"></script>
-<script src="src/js/data/deep_guides_2.js"></script>
 <script src="src/js/data/platforms_1.js"></script>
 <script src="src/js/data/platforms_2.js"></script>
 <script src="src/js/data/ideas.js"></script>
 <script src="src/js/data/faq.js"></script>
+<script src="src/js/data/deep_guides_1.js"></script>
+<script src="src/js/data/deep_guides_2.js"></script>
 <script src="src/js/core/store_utils.js"></script>
-<script src="src/js/core/router.js"></script>
-<script src="src/js/views/tiles_renderer.js"></script>
-<script src="src/js/views/anhang_view.js"></script>
-<script src="src/js/views/anhang_panes.js"></script>
 <script src="src/js/views/dash_view.js"></script>
-<script src="src/js/views/detail_deep_steps.js"></script>
-<script src="src/js/views/detail_view.js"></script>
-<script src="src/js/views/plan_calc_ui.js"></script>
-<script src="src/js/views/plan_view.js"></script>
-<script src="src/js/views/wizard_view.js"></script>
-<script src="src/js/app.js"></script>
+<script src="src/js/core/nav_search.js"></script>
+<script>
+  function bindDashTabs(){
+    const tabMap = { uebersicht:'dashPaneUebersicht', roadmap:'dashPaneRoadmap', faq:'dashPaneFaq', module:'dashPaneModule' };
+    $$('.dash-cat-btn').forEach(btn => {
+      btn.onclick = () => {
+        const target = btn.dataset.dashTab;
+        $$('.dash-cat-btn').forEach(b => { const on = b === btn; b.classList.toggle('on', on); b.setAttribute('aria-selected', on ? 'true' : 'false'); });
+        Object.keys(tabMap).forEach(key => { const pane = document.getElementById(tabMap[key]); if (pane) pane.classList.toggle('on', key === target); });
+      };
+    });
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    bindDashTabs();
+    renderDash();
+  });
+</script>
 </body>
 </html>

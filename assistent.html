@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elvaria · Assistent · Businessplan in 4 Minuten</title>
+<link rel="stylesheet" href="src/css/base.css">
+<link rel="stylesheet" href="src/css/plan_wizard.css">
+<link rel="stylesheet" href="src/css/sources_drawer.css">
+<link rel="stylesheet" href="src/css/sources_modal.css">
+</head>
+<body>
+<a href="#mainInhalt" class="sr" id="skip">Zum Hauptinhalt springen</a>
+<header>
+  <div class="hwrap">
+    <a href="index.html" class="brand"><b>ELVARIA</b><span>Businessplan · Yoga als Event</span></a>
+    <nav class="hnav" id="hnav">
+      <a href="index.html">Start</a>
+      <a href="assistent.html" class="on">Assistent</a>
+      <a href="businessplan.html">Businessplan</a>
+      <a href="anhang.html">Anhang</a>
+      <button type="button" class="btn-sources-nav" onclick="ELVARIA_SOURCES.openExplorer()">Quellen &amp; Recht</button>
+    </nav>
+    <div class="hsearch">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="qG" type="search" placeholder="Alles durchsuchen …" autocomplete="off" aria-label="Alles durchsuchen">
+      <kbd>/</kbd>
+      <div id="gPanel" hidden><div id="gList"></div></div>
+    </div>
+    <div class="hprog"><span class="dot"></span><span id="hprogTxt">0 Schritte</span></div>
+  </div>
+</header>
+
+<main id="mainInhalt" class="page-wrap" tabindex="-1">
+  <div class="wizhead">
+    <span class="eyebrow">Assistent · 12 kurze Fragen · dauert 4 Minuten</span>
+    <h1>Beantworte Fragen,<br><em>dein Businessplan schreibt sich von selbst.</em></h1>
+    <p>Du musst nichts über Businesspläne wissen. Jede Frage erklärt, warum sie kommt — und was die Antwort für dein Geld bedeutet.</p>
+    <div class="wizbar">
+      <b id="wizCount">Schritt 1 von 5</b>
+      <div class="pbar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="wizFill" style="width:0%"></i></div>
+      <a href="businessplan.html" class="skipp" id="wizJump">zum fertigen Plan</a>
+    </div>
+  </div>
+  <div class="wizwrap">
+    <div>
+      <div class="wizsteps" id="wizSteps" role="list"></div>
+      <div id="wizCard"></div>
+    </div>
+    <aside class="wizlive" id="wizLive" aria-live="polite"></aside>
+  </div>
+</main>
+
+<script src="src/data/fallback_sources.js"></script>
+<script src="src/components/SourcesDrawer.js"></script>
+<script src="src/js/data/plan_model.js"></script>
+<script src="src/js/data/plan_wizard.js"></script>
+<script src="src/js/core/store_utils.js"></script>
+<script src="src/js/views/wizard_view.js"></script>
+<script src="src/js/core/nav_search.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (typeof bindWizKeys === 'function') bindWizKeys();
+    renderWiz();
+  });
+</script>
+</body>
+</html>
