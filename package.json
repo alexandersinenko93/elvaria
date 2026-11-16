@@ -1,0 +1,22 @@
+{
+  "name": "elvaria-business-plan",
+  "version": "2.0.0",
+  "private": true,
+  "description": "ELVARIA - Interaktiver Businessplan, Szenarien-Rechner & Quellen-Explorer",
+  "scripts": {
+    "sync": "node sync_plan.js",
+    "check": "node sync_plan.js --check",
+    "deploy": "vercel --prod",
+    "dev": "vercel dev"
+  },
+  "keywords": [
+    "business-plan",
+    "elvaria",
+    "yoga",
+    "event-business",
+    "calculator",
+    "sources"
+  ],
+  "author": "ELVARIA",
+  "license": "UNLICENSED"
+}

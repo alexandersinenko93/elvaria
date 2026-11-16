@@ -121,8 +121,8 @@ const PLAN = [
   blocks:[
     {t:'Die Idee, in drei Sätzen',
      say:'Kein Raum, kein Vertrag, kein Risiko, wenn mal nichts läuft.',
-     b:['Du machst Yoga-Abende für Gruppen — mit Boxen, Klang, Atem-Übungen oder VR-Brillen. Ein Termin, ein Ort, ein Preis.',
-        'Du hast kein eigenes Studio. Du kommst in die Firma, ins Hotel, in den Hinterhof — oder mietest für einen Abend einen Raum.',
+     b:['Du machst Yoga-Abende für Gruppen — mit Boxen, Klang, Atem-Übungen oder VR-Brillen. Ein Termin, ein Ort, ein Preis. <button type="button" class="src-cite" data-source-id="heilprg-1" title="Quelle: HeilprG / HWG">§ HWG / HeilprG</button>',
+        'Du hast kein eigenes Studio. Du kommst in die Firma, ins Hotel, in den Hinterhof — oder mietest für einen Abend einen Raum. <button type="button" class="src-cite" data-source-id="hh-location-avg" title="Quelle: Hamburger Mietspiegel">ø 95 €/h Studio-Miete</button>',
         'Der Vorteil: Ein Studio muss jeden Monat mehrere tausend Euro Miete zurückverdienen. Du musst <b>0 €</b> zurückverdienen.']},
     {t:'Die vier Sachen, die Geld bringen',
      say:'Vier Wege zum selben Ziel. Sie sind nicht gleich viel wert.',
@@ -134,8 +134,8 @@ const PLAN = [
       ]}},
     {t:'Wen du zuerst ansprichst',
      say:'Eine Firma zu überzeugen ist billiger als 25 Einzelne.',
-     b:['<b>Platz 1: Firmen in Hamburg</b> mit 30 bis 300 Leuten. Die haben Budget für Gesundheit und dürfen 600 € pro Kopf steuerfrei ausgeben. Ein Ansprechpartner, 1.500–1.800 € pro Termin, keine Werbekosten.',
-        '<b>Platz 2: Private</b> über Gutscheine und offene Abende. Die zahlen weniger, bringen aber Bewertungen und Mundpropaganda.',
+     b:['<b>Platz 1: Firmen in Hamburg</b> mit 30 bis 300 Leuten. Die haben Budget für Gesundheit und dürfen 600 € pro Kopf steuerfrei ausgeben. Ein Ansprechpartner, 1.500–1.800 € pro Termin, keine Werbekosten. <button type="button" class="src-cite" data-source-id="sgb-v-20b" title="Quelle: § 3 Nr. 34 EStG / SGB V">600 € BGF</button>',
+        '<b>Platz 2: Private</b> über Gutscheine und offene Abende. Die zahlen weniger, bringen aber Bewertungen und Mundpropaganda. <button type="button" class="src-cite" data-source-id="gutschein-markt" title="Quelle: Gutscheinmarkt Deutschland">3,2 Mrd. € Markt</button>',
         '<b>Platz 3: Touristen</b> über GetYourGuide. Erst, wenn ein Format nachweislich läuft.']},
     {t:'Warum dich niemand kopiert',
      say:'Du musst nicht besser Yoga unterrichten. Du musst andere Sachen kombinieren.',
@@ -206,7 +206,7 @@ const PLAN = [
         ['Monat Abo','105 / 190 €','Planbarkeit — nur sinnvoll mit festem Kursplan'],
         ['Firmen-Event','1.500–1.800 €','Das eigentliche Geschäft'],
         ['Klang-Bad','470–590 €','Abend für 15–25 Personen, wenig Material'],
-        ['Gutschein','25 / 50 / 100 €','Geschenk; 3 Jahre gültig, Geld sofort da']
+        ['Gutschein','25 / 50 / 100 €','Geschenk; 3 Jahre gültig, Geld sofort da <button type="button" class="src-cite" data-source-id="bgb-195" title="Quelle: BGB § 195">BGB § 195</button>']
       ]}}
   ],
   next:[['Nur noch Abende planen, bei denen mindestens 400 € übrig bleiben','Alles darunter ist Werbung, kein Umsatz.'],
@@ -304,10 +304,10 @@ const PLAN = [
      say:'Zwei davon kannst du mit Geld abräumen. Zwei mit Disziplin.',
      tab:{h:['Was passieren kann','Wie wahrscheinlich','Was es kostet','Was du dagegen tust'], r:[
         ['Kein Raum-Deal zustande','mittel','Marge fällt von 56 % auf 24 %','Drei Studios gleichzeitig anfragen, nicht eins nach dem anderen'],
-        ['Unfall auf deinem Event, ohne Versicherung','niedrig','kann die Existenz kosten','Versicherung für Veranstalter — vor dem ersten Termin, nicht danach'],
+        ['Unfall auf deinem Event, ohne Versicherung','niedrig','kann die Existenz kosten','Versicherung für Veranstalter & VBG — vor dem ersten Termin, nicht danach <button type="button" class="src-cite" data-source-id="sgb-vii-192" title="Quelle: SGB VII § 192">VBG-Pflicht</button>'],
         ['Firma sagt kurzfristig ab','mittel','Plan fällt auf privat zurück','Zwei Firmen-Termine im Monat als Minimum, nicht als Ziel'],
         ['Mehr als acht Termine','sicher ab Nr. 9','Qualität leidet, Bewertungen fallen','Ab dem 9. Termin jemanden für Aufbau und Transport bezahlen'],
-        ['AGB fehlen oder falsch','mittel','Abmahnung, Rückabwicklung','Anwalt prüfen lassen, 300–600 € — einmal']
+        ['AGB fehlen oder falsch','mittel','Abmahnung, Rückabwicklung','Anwalt prüfen lassen, 300–600 € — einmal <button type="button" class="src-cite" data-source-id="bgb-309" title="Quelle: BGB § 309">BGB § 309</button>']
       ]}},
     {t:'Woran du nach drei Monaten siehst, dass es nicht trägt',
      say:'Drei Warnsignale. Eines davon reicht, um umzubauen.',
