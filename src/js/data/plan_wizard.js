@@ -1,0 +1,113 @@
+/**
+ * ELVARIA Business Plan — Wizard Questions (WIZ)
+ */
+const WIZ = [
+  {id:'anfang', kind:'multi',
+   q:'Was davon willst du wirklich machen?',
+   help:'Hak ab, was für dich passt. Alles andere frag ich dich gar nicht erst.',
+   why:'Weil ein Plan mit vier Geschäftsteilen und null Erfahrung nicht funktioniert. Fang mit ein oder zwei an.',
+   opts:[
+     {t:'Offene Abende für alle',d:'Du bewirbst einen Termin, einzelne kaufen Tickets.',set:{on_b2c:true}},
+     {t:'Events für Firmen',d:'Ein Ansprechpartner, eine Rechnung, viel Geld pro Termin.',set:{on_b2b:true}},
+     {t:'Material verleihen',d:'Matten, Klangschalen, VR-Brillen tageweise.',set:{on_verleih:true}},
+     {t:'Gutscheine verkaufen',d:'Über Plattformen, 25–100 €, Geld sofort.',set:{on_gutschein:true}}
+   ]},
+  {id:'gutschein', kind:'pick', need:'on_gutschein',
+   q:'Wie viel Gutschein-Umsatz erwartest du im Monat?',
+   help:'Gutscheine laufen über Plattformen. Du machst nichts außer einmal einrichten.',
+   why:'Weil das der einzige Teil ist, der wirklich nebenbei läuft — und weil er im ersten Monat Geld bringt, bevor dein erster Termin stattgefunden hat.',
+   field:'gutschein',
+   opts:[
+     {t:'Nur die eigene Website',d:'zurückhaltend gerechnet',v:300},
+     {t:'Website + 2 Plattformen',d:'so rechnet der Plan',v:800},
+     {t:'Website + 4 Plattformen + Firmen-Weihnachten',d:'läuft gut',v:1500},
+     {t:'Noch nicht sicher',d:'ich rechne mit der Mitte',v:800}
+   ]},
+  {id:'verleih', kind:'pick', need:'on_verleih',
+   q:'Wie oft im Monat geht Material raus?',
+   help:'Ein Set bringt je nach Größe 25–120 € pro Tag. Du holst ab und bringst zurück.',
+   why:'Weil Verleih keine Trainerin braucht: Material arbeitet, du nicht.',
+   field:'verleih',
+   opts:[
+     {t:'1–2 Ausleihen',d:'500–700 €',v:600},
+     {t:'3–5 Ausleihen',d:'1.200–1.800 €',v:1500},
+     {t:'6 oder mehr',d:'ab 2.500 €, dann aber Second-Hand-Material kaufen',v:3000},
+     {t:'Erstmal nicht',d:'sonst zerreißt dich die Logistik',v:0}
+   ]},
+  {id:'groesse', kind:'range', need:'on_b2c',
+   q:'Wie viele Leute kommen zu einem offenen Abend?',
+   help:'Ein normaler Kurs hat 12–18 Leute. Ein Event-Abend mit Rahmenprogramm 20–35.',
+   why:'Weil ab ca. 25 Leuten die zweite Trainerin Pflicht wird — und die kostet 25 % vom Umsatz.',
+   field:'b2cTN', min:6, max:60, step:1, unit:'Pers.',
+   presets:[['Kleiner Kreis',15],['Wie im Plan',25],['Großer Abend',35]]},
+  {id:'preis', kind:'range', need:'on_b2c',
+   q:'Was soll eine Person bezahlen?',
+   help:'Zum Vergleich: Einzelstunde im Studio 22,50 €. Dein Abend ist länger, seltener und ein Erlebnis.',
+   why:'Weil der Preis der einfachste Hebel ist: +5 € pro Ticket sind bei 25 Leuten 125 € mehr pro Termin — ohne einen Cent Mehrkosten.',
+   field:'ticket', min:11, max:80, step:1, unit:'€',
+   presets:[['Probestunde',11],['Studio-Niveau',22],['Event-Preis',39],['Premium',55]]},
+  {id:'raum', kind:'pick', need:'on_b2c',
+   q:'Was kostet dich der Raum für einen Abend?',
+   help:'Das ist die Frage, über die du zuerst verhandeln musst. Nicht die zweitte.',
+   why:'Sie entscheidet, ob dein Abend 189 € oder 439 € einbringt. Derselbe Aufwand.',
+   field:'location', unit:'€',
+   opts:[
+     {t:'Günstig oder gratis, weil ich neue Kunden mitbringe',d:'der Raum-Deal — so rechnet der Plan',v:120},
+     {t:'Normal gemietet',d:'200–300 € pro Abend',v:250},
+     {t:'Firmenraum, Hotel-Saal — 0 €',d:'die Firma stellt den Raum',v:0},
+     {t:'Weiß ich noch nicht',d:'dann rechne ich mit dem teureren Fall',v:250}
+   ]},
+  {id:'haeufig', kind:'range', need:'on_b2c',
+   q:'Wie viele offene Abende pro Monat?',
+   help:'Hoch ist nicht besser. Ab acht Terminen im Monat (alle Arten zusammen) leidet die Qualität.',
+   why:'Weil das die einzige Zahl ist, die du wirklich selbst in der Hand hast — und weil Überlastung hier der häufigste Grund fürs Aufgeben ist.',
+   field:'b2cEvents', min:0, max:12, step:1, unit:'Abende'},
+  {id:'firma', kind:'pick', need:'on_b2b',
+   q:'Was kostet ein Firmen-Event bei dir?',
+   help:'Üblicher Rahmen in Hamburg: 1.200–1.800 € für 20–40 Personen, zwei Stunden, alles inklusive.',
+   why:'Weil hier die Marge am höchsten ist: 79 % bleiben übrig, weil keine Werbung und kein Raum dazwischen sind.',
+   field:'b2bPreis', unit:'€',
+   opts:[
+     {t:'Kleines Paket, 12–20 Personen',d:'einfach anzunehmen, schnell gebucht',v:1200},
+     {t:'Standard, ca. 30 Personen',d:'so rechnet der Plan',v:1500},
+     {t:'Großes Paket mit Verpflegung/Technik',d:'braucht mehr Vorbereitung',v:1800},
+     {t:'Angebot auf Anfrage',d:'ich rechne mit der Mitte',v:1500}
+   ]},
+  {id:'firmazahl', kind:'range', need:'on_b2b',
+   q:'Wie viele Firmen-Termine schaffst du im Monat?',
+   help:'Zwei ist realistisch im ersten Quartal. Jeder bringt rund 945 € Deckungsbeitrag.',
+   why:'Weil ein einziger extra Firmen-Termin mehr bringt als fünf zusätzliche Tickets beim offenen Abend.',
+   field:'b2bEvents', min:0, max:12, step:1, unit:'Termine'},
+  {id:'kosten', kind:'check',
+   q:'Was davon willst du wirklich ausgeben?',
+   help:'Pflicht ist schon drin: 524 € im Monat für Buchhaltung, Versicherung, Beratung und Verbrauch.',
+   why:'Weil die meisten Pläne an den Kosten sterben, nicht am Umsatz. Was du hier abwählst, ist ein bewusster Verzicht — kein Versehen.',
+   field:'fixZusatz',
+   opts:[
+     {t:'Nur das Nötigste, nichts dazu',d:'so startest du, wenn das Geld knapp ist',v:0,keep:true},
+     {t:'Testwerbung bei Google',d:'0,80–2,50 € pro Klick, erst ab 200 € sinnvoll',v:300},
+     {t:'Fotograf für einen Abend',d:'ohne Bilder verkauft nichts',v:200},
+     {t:'Höhere Versicherungssumme',d:'teurer, aber ohne Sorge bei 40 Personen',v:40},
+     {t:'Zweite Kraft für Aufbau & Transport',d:'ab dem 9. Termin nötig',v:450},
+     {t:'Nur das Nötigste',d:'Grundausstattung, nichts extra',v:0,keep:true}
+   ]},
+  {id:'papier', kind:'check',
+   q:'Was hast du schon erledigt?',
+   help:'Das ist keine Wissensfrage. Das ist deine To-do-Liste für die nächsten vier Wochen.',
+   why:'Weil drei dieser Punkte dir Geld oder Erlaubnis kosten, wenn du sie vergisst — und drei von ihnen blockieren alles andere.',
+   field:'erledigt', plain:true,
+   opts:[
+     {t:'Gewerbe angemeldet',d:'20–60 € einmalig',c:40,block:'blockiert: nichts — aber ohne kein Finanzamt'},
+     {t:'Versicherung für Veranstalter',d:'720–1.320 € im Jahr',c:1020,block:'blockiert: jeden Termin mit Publikum'},
+     {t:'AGB und Widerruf online',d:'300–600 € beim Anwalt',c:450,block:'blockiert: gewerblichen Verkauf von Gutscheinen'},
+     {t:'VU-Nummer geklärt',d:'0 €, über den Zahlungsanbieter',c:0,block:'blockiert: Kartenzahlung bei Plattformen'},
+     {t:'Zahlungsanbieter eingerichtet',d:'ca. 1,4–2,9 % pro Buchung',c:0,block:'blockiert: Geldfluss'},
+     {t:'Unfallversicherung (VBG) angemeldet',d:'Beitrag nach Entgelt',c:70,block:'Pflicht, auch ohne Angestellte'},
+     {t:'Raum für die ersten drei Abende gesichert',d:'0–250 € pro Abend',c:0,block:'blockiert: offene Abende'},
+     {t:'Preisblatt für Firmen als PDF',d:'0 €, zwei Stunden Arbeit',c:0,block:'blockiert: Firmen-Akquise'}
+   ]},
+  {id:'fertig', kind:'out',
+   q:'Dein Plan. In einem Blatt.',
+   help:'Unten stehen deine Zahlen, was du als Nächstes tust und wo du sie nachlesen kannst.'}
+];
+/* ═══ PLAN:END ═══ */
