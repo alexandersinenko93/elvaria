@@ -19,26 +19,10 @@ function renderDash() {
       </div>
 
       <div class="cps-grid">
-        <div class="cps-card">
-          <span class="cps-step">SÄULE 01 · MODELL</span>
-          <b>Event statt Kursplan</b>
-          <p>Verzicht auf das unrentable 10-Matten-Drop-in-Raster. Fokus auf buchbare Signature-Events (Yoga + X) und B2B-Firmenformate.</p>
-        </div>
-        <div class="cps-card">
-          <span class="cps-step">SÄULE 02 · HEBEL</span>
-          <b>Der Raum-Deal</b>
-          <p>Keine 2.000 € Festmiete. Partnerschaften mit bestehenden Studios in Randzeiten, Rooftops, Hotel-Suiten und Firmenräumen.</p>
-        </div>
-        <div class="cps-card">
-          <span class="cps-step">SÄULE 03 · VERTRIEB</span>
-          <b>14 Gutschein-Plattformen</b>
-          <p>Automatisierte Kundengewinnung über Erlebnismärkte (gokonfetti, GetYourGuide) und Gutscheinnetzwerke (Wunschgutschein, Atento).</p>
-        </div>
-        <div class="cps-card">
-          <span class="cps-step">SÄULE 04 · RECHT</span>
-          <b>100% Verifiziert</b>
-          <p>3 Jahre Gutscheingültigkeit (§ 195 BGB), HWG-konforme Kommunikation ohne Heilaussagen, VBG-Pflicht &amp; § 3 Nr. 34 EStG.</p>
-        </div>
+        <div class="cps-card"><span class="cps-step">SÄULE 01 · MODELL</span><b>Event statt Kursplan</b><p>Verzicht auf das unrentable 10-Matten-Drop-in-Raster. Fokus auf buchbare Signature-Events (Yoga + X) und B2B-Firmenformate.</p></div>
+        <div class="cps-card"><span class="cps-step">SÄULE 02 · HEBEL</span><b>Der Raum-Deal</b><p>Keine 2.000 € Festmiete. Partnerschaften mit bestehenden Studios in Randzeiten, Rooftops, Hotel-Suiten und Firmenräumen.</p></div>
+        <div class="cps-card"><span class="cps-step">SÄULE 03 · VERTRIEB</span><b>14 Gutschein-Plattformen</b><p>Automatisierte Kundengewinnung über Erlebnismärkte (gokonfetti, GetYourGuide) und Gutscheinnetzwerke (Wunschgutschein, Atento).</p></div>
+        <div class="cps-card"><span class="cps-step">SÄULE 04 · RECHT</span><b>100% Verifiziert</b><p>3 Jahre Gutscheingültigkeit (§ 195 BGB), HWG-konforme Kommunikation ohne Heilaussagen, VBG-Pflicht &amp; § 3 Nr. 34 EStG.</p></div>
       </div>
 
       <!-- Sequentieller Ablauf -->
@@ -99,37 +83,60 @@ function renderDash() {
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
         <div>
-          <b>Das Yoga + X Kompendium erkunden (18 Konzepte)</b>
-          <p>Kombinationen: Boxen, Soundbath, Wein, Neon, Matcha, Keramik, SUP, Live-Cello mit realen Benchmarks &amp; Flows.</p>
+          <b>Das Yoga + X Kompendium erkunden (24 Konzepte)</b>
+          <p>Kombinationen: Boxen, Soundbath, Keramik, SUP, Coffee Cupping, Kokedama, Vagus-Reset &amp; Galaxy Night mit realen Benchmarks &amp; Flows.</p>
         </div>
         <span class="dql-arrow">→</span>
       </div>
     </div>
 
-    <!-- 4. Hamburger Partner-Studios (Raum-Deals) & Equipment-Verleih Hub -->
+    <!-- 4. Hamburger Partner- & Location-Netzwerk (4 Säulen Hub) -->
     <div class="dash-hamburg-hub">
       <div class="hub-box">
-        <span class="cps-step">HAMBURG RAUM-DEAL DIRECTORY</span>
-        <b>Verifizierte Partner-Studios (Randzeiten-Miete)</b>
-        <p>Keine 2.000 € Festmiete. Stundenweise Anmietung leerstehender Spitzen-Locations in Eimsbüttel, Hoheluft &amp; Altona:</p>
+        <span class="cps-step">SÄULE 01 · RAUM-DEALS</span>
+        <b>Verifizierte Partner-Studios</b>
+        <p>Stundenweise Anmietung (35–50 €/Std.) ohne 2.000 € Festmiet-Risiko:</p>
         <div class="hub-pills">
-          <span class="hub-pill"><b>Khôra Studio</b> · Eimsbüttel (200 m², ab 40 €/Std.)</span>
-          <span class="hub-pill"><b>The Shala</b> · Eimsbüttel (140 m² Feng-Shui Loft)</span>
-          <span class="hub-pill"><b>YogaEasy Space</b> · Hoheluft (54 m², 28 Matten, 40 €/Std.)</span>
-          <span class="hub-pill"><b>White Collar Boxing Club</b> · Niendorf (Ring &amp; Pratzensaal)</span>
-          <span class="hub-pill"><b>Swawole Atelier</b> · Eppendorfer Weg (Keramik &amp; Töpfern)</span>
-          <span class="hub-pill"><b>SUP CLUB Hamburg</b> · Isekai (Yoga-Boards am Fleet)</span>
+          <span class="hub-pill"><b>Mattenplatz (Hohenfelde)</b> · 90 m² Loft an der Alster, ab 50 €/Std. (25 Matten)</span>
+          <span class="hub-pill"><b>Soulspaces (Barmbek)</b> · 82 m² Hinterhof-Oase, ab 45 €/Std. (Yin &amp; Soundbath)</span>
+          <span class="hub-pill"><b>grow. (Karoviertel)</b> · 60 m² Altbau-Loft, ab 40 €/Std. (Zentrale Szene-Lage)</span>
+          <span class="hub-pill"><b>YogaEasy Space (Hoheluft)</b> · 54 m², ab 40 €/Std. (Küche &amp; 28 Matten)</span>
+          <span class="hub-pill"><b>The Shala (Eimsbüttel)</b> · 140 m² Feng-Shui Loft für High-End Signature Retreats</span>
         </div>
       </div>
       <div class="hub-box">
-        <span class="cps-step">EQUIPMENT-VERLEIH &amp; LOGISTIK</span>
+        <span class="cps-step">SÄULE 02 · ROOFTOPS</span>
+        <b>Spektakuläre Open-Air Spots</b>
+        <p>Exklusive Hamburger Dachterrassen mit verlässlicher Schlechtwetter-Alternative:</p>
+        <div class="hub-pills">
+          <span class="hub-pill"><b>OutOfOffice (HafenCity)</b> · 160 m² Dachterrasse mit Elphi-Blick + 260 m² Indoor</span>
+          <span class="hub-pill"><b>Sturmfreie Bude (Alstertower)</b> · 13. OG Panoramablick für Sunrise Sessions</span>
+          <span class="hub-pill"><b>The Hive Rooftop (Karoviertel)</b> · Sonnige Hinterhof-Dachterrasse über 2 Etagen</span>
+          <span class="hub-pill"><b>Kulturkirche &amp; Speicher</b> · Historische Backstein-Gewölbe für Galaxy Nights</span>
+        </div>
+      </div>
+      <div class="hub-box">
+        <span class="cps-step">SÄULE 03 · ERLEBNIS-PARTNER</span>
+        <b>Das „X“: Kooperationen &amp; Kultur</b>
+        <p>Echte Experten-Partner für die Differenzierung vom klassischen Kursplan:</p>
+        <div class="hub-pills">
+          <span class="hub-pill"><b>Public Coffee &amp; Elbgold</b> · Barista-Cupping &amp; Kaffeesensorik sonntags</span>
+          <span class="hub-pill"><b>Swawole Atelier &amp; Chamotte</b> · Keramik &amp; Drehton für Clay &amp; Calm</span>
+          <span class="hub-pill"><b>SUP CLUB Hamburg (Isekai)</b> · 20x Yoga-Boards mit Fleet-Verankerung</span>
+          <span class="hub-pill"><b>HfMT Musiker-Netzwerk</b> · 100% GEMA-freie Handpan-, Cello- &amp; Harfen-Livebegleitung</span>
+          <span class="hub-pill"><b>Blumenmanufaktur Schanze</b> · Kokedama-Mooskugeln &amp; Botanical Art</span>
+        </div>
+      </div>
+      <div class="hub-box">
+        <span class="cps-step">SÄULE 04 · LOGISTIK</span>
         <b>Das mobile „Studio im Kofferraum“</b>
         <p>Ausrüstung auf Abruf – maximale Flexibilität bei minimaler Kapitalbindung:</p>
         <div class="hub-pills">
           <span class="hub-pill"><b>Silent Disco Kopfhörer:</b> 25 Stk. + 3 Sender ca. 125–140 €/WE (Lärmschutz-Joker)</span>
-          <span class="hub-pill"><b>432 Hz Kristallschalen:</b> 7-teiliges Quarz-Set in Schutztaschen</span>
-          <span class="hub-pill"><b>Box-Equipment:</b> 10 Paar Focus Mitts &amp; waschbare Gel-Quickwraps</span>
-          <span class="hub-pill"><b>UV-Schwarzlicht Fluter:</b> 4x 50W LED Fluter (395nm) &amp; Bio-Neonfarben</span>
+          <span class="hub-pill"><b>432 Hz Kristallschalen:</b> 7-teiliges Quarz-Set in Schutztaschen (Top-Marge)</span>
+          <span class="hub-pill"><b>Blackroll Faszien-Set:</b> 15er Rollen- &amp; Duoball-Bundle für Runner Recovery</span>
+          <span class="hub-pill"><b>UV-Schwarzlicht Fluter:</b> 4x 50W LED (395nm) &amp; Bio-Neon-Körperfarben</span>
+          <span class="hub-pill"><b>RDX Box-Equipment:</b> 12 Paar Focus Mitts &amp; waschbare Quickwraps</span>
         </div>
       </div>
     </div>
