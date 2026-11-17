@@ -1,223 +1,98 @@
 /* ══════════════════════════════════════════════════════════════════════
-   ELVARIA LUXURY SCANDINAVIAN DESIGN SYSTEM & SOURCES DRAWER STYLES
-   Colors: Nordic Navy #111C24, Champagne Gold #C5A869, Sage #2E6A50, Cream #F8F6F1
+   ELVARIA · Ultra-Luxury Dark Sources & Legal Compliance Drawer
    ══════════════════════════════════════════════════════════════════════ */
 
-/* Subtle Inline Citation Pill */
 .src-cite {
-  display: inline-flex;
-  align-items: center;
-  gap: 3px;
-  background: rgba(197, 168, 105, 0.12);
-  border: 1px solid rgba(197, 168, 105, 0.35);
-  color: #8A6F2E;
-  font-size: 11px;
-  font-weight: 600;
-  padding: 1px 7px;
-  border-radius: 99px;
-  margin: 0 4px;
-  cursor: pointer;
-  vertical-align: baseline;
-  text-decoration: none;
-  transition: all 0.16s cubic-bezier(0.16, 1, 0.3, 1);
-  letter-spacing: 0.02em;
-  user-select: none;
+  display: inline-flex; align-items: center; gap: 4px;
+  background: rgba(212, 175, 55, 0.12); border: 1px solid rgba(212, 175, 55, 0.35);
+  color: var(--gold-light); font-size: 11px; font-weight: 600;
+  padding: 2px 8px; border-radius: var(--r-pill); margin: 0 4px;
+  cursor: pointer; vertical-align: baseline; text-decoration: none;
+  transition: all 0.16s ease; letter-spacing: 0.02em; user-select: none;
 }
-
-.btn-sources-nav {
-  padding: 8px 16px;
-  border-radius: 99px;
-  font-size: 13.5px;
-  color: #DCC28C;
-  background: rgba(178, 145, 78, 0.14);
-  border: 1px solid rgba(178, 145, 78, 0.35);
-  transition: .15s;
-  white-space: nowrap;
-  cursor: pointer;
-}
-
-.btn-sources-nav:hover {
-  background: rgba(178, 145, 78, 0.28);
-  color: #fff;
-  border-color: #DCC28C;
-}
-
 .src-cite:hover {
-  background: #C5A869;
-  color: #111C24;
-  border-color: #C5A869;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 6px rgba(197, 168, 105, 0.25);
+  background: var(--gold); color: var(--bg-obsidian); border-color: var(--gold);
+  transform: translateY(-1px); box-shadow: 0 0 10px var(--gold-glow);
 }
+.src-cite svg { width: 10px; height: 10px; opacity: 0.85; }
 
-.src-cite svg {
-  width: 10px;
-  height: 10px;
-  opacity: 0.75;
-}
-
-/* ══════════ SOURCES DRAWER ══════════ */
+/* ── Drawer Component ── */
 .src-drawer {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: none;
-  align-items: stretch;
-  justify-content: flex-end;
+  position: fixed; inset: 0; z-index: 9999; display: none;
+  align-items: stretch; justify-content: flex-end;
 }
-
-.src-drawer.is-open {
-  display: flex;
-}
+.src-drawer.is-open { display: flex; }
 
 .src-drawer-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(17, 28, 36, 0.65);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  position: fixed; inset: 0; background: rgba(5, 7, 10, 0.75);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   animation: srcFadeIn 0.25s ease-out;
 }
 
 .src-drawer-panel {
-  position: relative;
-  z-index: 10000;
-  width: 100%;
-  max-width: 480px;
-  background: #FFFFFF;
-  color: #242A30;
-  display: flex;
-  flex-direction: column;
-  box-shadow: -10px 0 35px rgba(17, 28, 36, 0.2);
-  animation: srcSlideLeft 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  overflow-y: auto;
+  position: relative; z-index: 10000; width: 100%; max-width: 500px;
+  background: #0E141E; color: #F7F5F0; display: flex; flex-direction: column;
+  box-shadow: -12px 0 40px rgba(0, 0, 0, 0.8); animation: srcSlideLeft 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto; border-left: 1px solid var(--border-hairline);
 }
 
-@keyframes srcSlideLeft {
-  from { transform: translateX(100%); }
-  to { transform: translateX(0); }
-}
-
-@keyframes srcFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+@keyframes srcSlideLeft { from { transform: translateX(100%); } to { transform: translateX(0); } }
+@keyframes srcFadeIn { from { opacity: 0; } to { opacity: 1; } }
 
 .src-drawer-header {
-  padding: 24px 28px;
-  background: #111C24;
-  color: #F8F6F1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 26px 30px; background: rgba(255, 255, 255, 0.02);
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid var(--border-hairline);
 }
-
 .src-header-title h3 {
-  font-family: Georgia, serif;
-  font-size: 20px;
-  color: #FFFFFF;
-  margin-top: 5px;
-  line-height: 1.25;
+  font-family: var(--font-serif); font-size: 22px; color: #FFFFFF;
+  margin-top: 6px; line-height: 1.2;
 }
-
 .src-badge-gold {
-  font-size: 9.5px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #C5A869;
-  font-weight: 700;
+  font-size: 9.5px; letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--gold); font-weight: 700;
 }
-
 .src-close-btn {
-  font-size: 28px;
-  line-height: 1;
-  color: #C2D0DA;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 4px 8px;
-  border-radius: 6px;
-  transition: all 0.15s;
+  font-size: 26px; line-height: 1; color: var(--ink-secondary);
+  background: none; border: none; cursor: pointer; padding: 4px 8px;
+  border-radius: 6px; transition: all 0.15s ease;
 }
+.src-close-btn:hover { color: #FFFFFF; background: rgba(255, 255, 255, 0.08); }
 
-.src-close-btn:hover {
-  color: #FFFFFF;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.src-drawer-body {
-  padding: 28px;
-  flex: 1;
-}
-
+.src-drawer-body { padding: 30px; flex: 1; }
 .src-category-pill {
-  display: inline-block;
-  background: #F4EFE6;
-  color: #6C5424;
-  font-size: 11px;
-  font-weight: 700;
-  padding: 4px 11px;
-  border-radius: 99px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 16px;
+  display: inline-block; background: rgba(212, 175, 55, 0.12); color: var(--gold);
+  border: 1px solid rgba(212, 175, 55, 0.25); font-size: 11px; font-weight: 600;
+  padding: 4px 12px; border-radius: var(--r-pill); text-transform: uppercase;
+  letter-spacing: 0.1em; margin-bottom: 18px;
 }
-
 .src-citation-text {
-  font-size: 15.5px;
-  line-height: 1.65;
-  color: #2F3841;
-  border-left: 3px solid #C5A869;
-  padding-left: 16px;
-  margin-bottom: 24px;
+  font-size: 15px; line-height: 1.65; color: #E2E8F0;
+  border-left: 3px solid var(--gold); padding-left: 18px; margin-bottom: 24px;
 }
-
-.src-link-wrap {
-  margin-top: 20px;
+.src-meta-block {
+  background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-hairline);
+  border-radius: var(--r-md); padding: 18px; margin-bottom: 20px;
 }
+.src-meta-item { margin-bottom: 10px; font-size: 13px; color: var(--ink-secondary); }
+.src-meta-item:last-child { margin-bottom: 0; }
+.src-meta-item b { color: #FFFFFF; display: block; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-tertiary); margin-bottom: 2px; }
 
+.src-link-wrap { margin-top: 24px; }
 .src-ext-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #111C24;
-  color: #F8F6F1;
-  font-size: 13.5px;
-  font-weight: 600;
-  padding: 10px 18px;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.18s ease;
+  display: inline-flex; align-items: center; gap: 8px; background: var(--gold);
+  color: var(--bg-obsidian); font-size: 13.5px; font-weight: 600; padding: 11px 22px;
+  border-radius: var(--r-pill); text-decoration: none; transition: all 0.18s ease;
+  box-shadow: 0 0 16px var(--gold-glow);
 }
-
-.src-ext-link:hover {
-  background: #284A63;
-  color: #FFFFFF;
-  transform: translateY(-1px);
-}
+.src-ext-link:hover { background: var(--gold-light); transform: translateY(-1px); }
 
 .src-drawer-footer {
-  padding: 20px 28px;
-  background: #F9F8F5;
-  border-top: 1px solid #ECE7DD;
+  padding: 22px 30px; background: rgba(255, 255, 255, 0.02); border-top: 1px solid var(--border-hairline);
 }
-
 .src-btn-outline {
-  width: 100%;
-  padding: 11px 16px;
-  border: 1px solid #D2C7B2;
-  background: #FFFFFF;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 600;
-  color: #111C24;
-  cursor: pointer;
-  transition: all 0.15s ease;
+  width: 100%; padding: 12px 18px; border: 1px solid var(--border-hairline);
+  background: rgba(255, 255, 255, 0.04); border-radius: var(--r-pill); font-size: 13px;
+  font-weight: 600; color: #FFFFFF; cursor: pointer; transition: all 0.15s ease;
 }
-
-.src-btn-outline:hover {
-  border-color: #C5A869;
-  background: #FDFBF8;
-}
-
+.src-btn-outline:hover { border-color: var(--border-gold); background: rgba(255, 255, 255, 0.08); }
