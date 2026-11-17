@@ -7,7 +7,7 @@
   display: flex; gap: 8px; background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
   padding: 6px; border-radius: var(--r-pill); border: 1px solid var(--border-hairline);
-  box-shadow: var(--sh-md); margin: -28px auto 36px; max-width: 960px;
+  box-shadow: var(--sh-md); margin: -28px auto 32px; max-width: 960px;
   position: relative; z-index: 20; overflow-x: auto;
 }
 .dash-cat-btn {
@@ -25,6 +25,54 @@
 
 .dash-pane { display: none; opacity: 0; transform: translateY(4px); transition: opacity 0.2s ease, transform 0.2s ease; }
 .dash-pane.on { display: block; opacity: 1; transform: translateY(0); }
+
+/* ── Change Plan & Vorhaben Summary ── */
+.change-plan-summary {
+  background: var(--bg-card); border: 1px solid var(--border-hairline);
+  border-radius: var(--r-lg); padding: 32px 34px; margin-bottom: 24px; box-shadow: var(--sh-sm);
+}
+.cps-badge {
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-accent);
+  font-weight: 600; display: inline-block; margin-bottom: 8px;
+}
+.cps-head h2 { font-size: 24px; color: var(--navy-deep); margin-bottom: 8px; }
+.cps-head p { font-size: 14px; color: var(--ink-secondary); max-width: 75ch; line-height: 1.55; margin-bottom: 24px; }
+.cps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; margin-bottom: 24px; }
+.cps-card {
+  background: var(--bg-sand); border: 1px solid var(--border-hairline);
+  border-radius: var(--r-md); padding: 18px 20px; display: flex; flex-direction: column;
+}
+.cps-step { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; color: var(--gold-accent); margin-bottom: 4px; }
+.cps-card b { font-size: 15px; color: var(--navy-deep); margin-bottom: 6px; }
+.cps-card p { font-size: 12.5px; color: var(--ink-secondary); line-height: 1.45; }
+
+/* ── Sequential Timeline Bar ── */
+.cps-timeline { padding-top: 18px; border-top: 1px solid var(--border-hairline); }
+.cps-tl-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-secondary); font-weight: 600; margin-bottom: 10px; }
+.cps-steps-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.cps-step-pill {
+  display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: var(--r-pill);
+  font-size: 12px; font-weight: 500; background: var(--bg-cream); color: var(--navy-deep);
+  border: 1px solid var(--border-hairline); cursor: pointer; transition: all 0.15s ease;
+}
+.cps-step-pill:hover { border-color: var(--gold-accent); transform: translateY(-1px); }
+.cps-step-pill.on { background: var(--navy-deep); color: #FFFFFF; font-weight: 600; }
+.cps-step-pill .num {
+  width: 17px; height: 17px; border-radius: 50%; background: var(--gold-subtle); color: var(--gold-accent);
+  font-size: 10px; display: flex; align-items: center; justify-content: center; font-weight: 600;
+}
+.cps-step-pill.on .num { background: var(--gold-accent); color: var(--navy-deep); }
+.cps-arr { color: var(--ink-tertiary); font-size: 13px; }
+
+/* ── Sequential Next Banner ── */
+.seq-next-banner {
+  background: linear-gradient(135deg, #15222E 0%, #0D161F 100%); color: #FFFFFF;
+  border-radius: var(--r-md); padding: 18px 24px; display: flex; align-items: center;
+  justify-content: space-between; margin-top: 24px; cursor: pointer; transition: all 0.18s ease;
+}
+.seq-next-banner:hover { transform: translateY(-2px); box-shadow: var(--sh-md); }
+.seq-next-banner b { font-size: 14.5px; color: #FFFFFF; }
+.seq-next-banner span { font-size: 12.5px; color: var(--gold-accent); display: flex; align-items: center; gap: 6px; font-weight: 600; }
 
 /* ── Statusbar & Simple FAQs ── */
 .statusbar {

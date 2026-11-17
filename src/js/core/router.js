@@ -129,6 +129,14 @@ document.addEventListener('click', e => {
   const w = e.target.closest('[data-wiz]');
   if (w) { e.preventDefault(); showView('wiz'); return; }
 
+  const dt = e.target.closest('[data-dash-tab]');
+  if (dt && !dt.classList.contains('dash-cat-btn')) {
+    e.preventDefault();
+    showView('dash');
+    if (typeof switchDashTab === 'function') switchDashTab(dt.dataset.dashTab);
+    return;
+  }
+
   const v = e.target.closest('[data-view]');
   if (v) {
     e.preventDefault();

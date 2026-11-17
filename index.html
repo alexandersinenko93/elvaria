@@ -27,8 +27,7 @@
     </nav>
     <div class="hsearch">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <input id="qG" type="search" placeholder="Alles durchsuchen …" autocomplete="off" aria-label="Alles durchsuchen">
-      <kbd>/</kbd>
+      <input id="qG" type="search" placeholder="Alles durchsuchen …" autocomplete="off" aria-label="Alles durchsuchen"><kbd>/</kbd>
       <div id="gPanel" hidden><div id="gList"></div></div>
     </div>
     <div class="hprog"><span class="dot" aria-hidden="true"></span><span id="hprogTxt">0 Schritte</span></div>
@@ -63,7 +62,7 @@
 <!-- ═══════════ 1. START / ÜBERSICHT ═══════════ -->
 <section class="view subpage on" id="v-dash" data-sub="start">
   <div class="dash-cat-bar" role="tablist" aria-label="Kategorien Übersicht">
-    <button class="dash-cat-btn on" data-dash-tab="uebersicht" role="tab" aria-selected="true"><span class="num">1</span> Überblick &amp; Schnellstart</button>
+    <button class="dash-cat-btn on" data-dash-tab="uebersicht" role="tab" aria-selected="true"><span class="num">1</span> Vorhaben &amp; Change-Plan</button>
     <button class="dash-cat-btn" data-dash-tab="roadmap" role="tab" aria-selected="false"><span class="num">2</span> 7-Schritte-Fahrplan</button>
     <button class="dash-cat-btn" data-dash-tab="faq" role="tab" aria-selected="false"><span class="num">3</span> Kurz erklärt (FAQ)</button>
     <button class="dash-cat-btn" data-dash-tab="module" role="tab" aria-selected="false"><span class="num">4</span> Arbeits-Module</button>
@@ -71,6 +70,31 @@
 
   <div class="dash-pane on" id="dashPaneUebersicht">
     <div id="resume"></div>
+    <!-- Change-Plan & Vorhaben Summary -->
+    <div class="change-plan-summary" id="changePlanBox">
+      <div class="cps-head">
+        <span class="cps-badge">DAS VORHABEN · MASTER- &amp; CHANGE-PLAN</span>
+        <h2>Yoga als Event, nicht als Kursplan.</h2>
+        <p>Die Transformation des Geschäftsmodells in vier aufeinander aufbauenden Schritten — radikal sequentiell, transparent und 100% verifiziert.</p>
+      </div>
+      <div class="cps-grid">
+        <div class="cps-card"><span class="cps-step">SÄULE 01 · MODELL</span><b>Event statt Kursplan</b><p>Schluss mit 15 € Einzeltickets. Fokus auf Firmen-Events (1.510 € DB) und Signature-Events (439 € DB).</p></div>
+        <div class="cps-card"><span class="cps-step">SÄULE 02 · HEBEL</span><b>Der Raum-Deal</b><p>0–150 € Raumaufwand statt 2.000 € Festmiete. Partnerschaft mit Studios in Randzeiten gegen Beteiligung.</p></div>
+        <div class="cps-card"><span class="cps-step">SÄULE 03 · RECHT</span><b>100% Fact-Checked</b><p>Gutscheine 3 Jahre gültig (§ 195 BGB), HWG-konform (kein Heilversprechen), VBG-Pflicht &amp; 600 € BGF (§ 3 Nr. 34 EStG).</p></div>
+        <div class="cps-card"><span class="cps-step">SÄULE 04 · START</span><b>Lean &amp; Sicher</b><p>5.560 € Startgeld, 1.450 € Fixkosten. Break-even ab nur <b>3 Events pro Monat</b> gesichert.</p></div>
+      </div>
+      <div class="cps-timeline">
+        <div class="cps-tl-title">Der sequentielle Ablauf (Schritt für Schritt):</div>
+        <div class="cps-steps-row">
+          <button class="cps-step-pill on" data-dash-tab="uebersicht"><span class="num">1</span> Change-Plan</button><span class="cps-arr">→</span>
+          <button class="cps-step-pill" data-dash-tab="roadmap"><span class="num">2</span> 7-Schritte-Fahrplan</button><span class="cps-arr">→</span>
+          <button class="cps-step-pill" data-view="wiz"><span class="num">3</span> Assistent (4 Min)</button><span class="cps-arr">→</span>
+          <button class="cps-step-pill" data-view="plan"><span class="num">4</span> Businessplan &amp; Rechner</button><span class="cps-arr">→</span>
+          <button class="cps-step-pill" data-view="anhang"><span class="num">5</span> Kanäle &amp; 40 Ideen</button>
+        </div>
+      </div>
+    </div>
+
     <div class="hero-answer" id="answer">
       <div class="ha-l">
         <span class="ha-kick">Das Wichtigste in einem Satz</span>
@@ -78,18 +102,24 @@
         <p class="ha-sub">Kein Fachwort ohne Erklärung. Der Assistent stellt dir zwölf Fragen, der Rechner kalkuliert live mit.</p>
       </div>
       <div class="ha-r">
-        <button class="ha-go" data-wiz="1">
-          <span>Assistent starten</span><b>12 Fragen · 4 Minuten</b><i>kein Vorwissen nötig</i>
-        </button>
+        <button class="ha-go" data-wiz="1"><span>Assistent starten</span><b>12 Fragen · 4 Minuten</b><i>kein Vorwissen nötig</i></button>
       </div>
     </div>
     <div id="dynKpiBox"></div>
+    <div class="seq-next-banner" data-dash-tab="roadmap">
+      <b>Nächster Schritt in der Sequenz: Der 7-Schritte-Fahrplan bis zum ersten Euro</b>
+      <span>Fahrplan öffnen →</span>
+    </div>
   </div>
 
   <div class="dash-pane" id="dashPaneRoadmap">
     <div class="statusbar" id="statusbar"></div>
     <div class="sec"><span class="n">START</span><h2>Der Weg in sieben Schritten</h2><span class="r">Oben zuerst</span></div>
     <div class="roadmap" id="roadmap"></div>
+    <div class="seq-next-banner" data-view="wiz" style="margin-top:28px">
+      <b>Nächster Schritt in der Sequenz: Den Plan im 4-Minuten-Assistenten individualisieren</b>
+      <span>Zum Assistenten →</span>
+    </div>
   </div>
 
   <div class="dash-pane" id="dashPaneFaq">
