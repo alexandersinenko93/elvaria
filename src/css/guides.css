@@ -33,7 +33,7 @@
   font-size: 10.5px; letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold);
   margin-bottom: 12px; font-weight: 600; display: block;
 }
-.dt-hero h1 { font-family: var(--font-serif); font-size: clamp(24px, 3.8vw, 36px); color: #FFFFFF; margin-bottom: 10px; line-height: 1.2; }
+.dt-hero h1 { font-family: var(--font-serif); font-size: clamp(30px, 4.6vw, 44px); font-weight: 400; color: #FFFFFF; margin-bottom: 10px; line-height: 1.12; }
 .dt-hero p { font-size: 14.5px; color: var(--ink-secondary); max-width: 72ch; line-height: 1.6; }
 
 /* ── Progress Row ── */
