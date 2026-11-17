@@ -157,25 +157,38 @@
       <span class="dt-kick" id="dKick">Detailansicht</span>
       <h1 id="dH">Titel</h1>
       <p id="dP">Beschreibung</p>
+      <div class="dt-progress-row">
+        <div class="pbar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="dBar" style="width:0%"></i></div>
+        <span id="dNum">0 / 0</span>
+      </div>
       <div class="dt-tags" id="dTags"></div>
       <div class="dt-facts" id="dFacts"></div>
     </div>
 
     <div class="dt-body">
       <div class="dt-main">
-        <div class="dt-steps-box">
-          <div class="dt-box-head">
-            <h3 id="dTutHead">Schritt-für-Schritt Anleitung</h3>
-            <span id="dTutSub">Abhakbar · Speichert automatisch im Browser</span>
-          </div>
-          <div id="dSteps"></div>
+        <div id="dSeg" class="dt-seg" hidden>
+          <button class="on" data-seg="quick" aria-selected="true">Kurzanleitung (<span id="segQN">0 Schritte</span>)</button>
+          <button data-seg="deep" aria-selected="false">Vollständiger Deep-Guide (<span id="segDN">0 Schritte</span>)</button>
         </div>
-        <div id="dSeg" hidden></div>
-        <div id="dDeep"></div>
+        <div id="paneQuick">
+          <div class="dt-steps-box">
+            <div class="dt-box-head">
+              <h3 id="dTutHead">Schritt-für-Schritt Anleitung</h3>
+              <span id="dTutSub">Abhakbar · Speichert automatisch im Browser</span>
+            </div>
+            <div id="dSteps"></div>
+          </div>
+        </div>
+        <div id="paneDeep" hidden>
+          <div id="dDeep"></div>
+          <div class="dt-cta-deep" id="dCta2"></div>
+        </div>
       </div>
       <aside class="dt-side">
         <div class="dt-notes" id="dNotes"></div>
         <div class="dt-cta" id="dCta"></div>
+        <div class="dt-rel" id="dRel"></div>
       </aside>
     </div>
   </section>
@@ -201,12 +214,13 @@
 <script src="src/js/data/ideas.js"></script>
 <script src="src/js/data/deep_guides_1.js"></script>
 <script src="src/js/data/deep_guides_2.js"></script>
-<script>window.DEEP = Object.assign({}, window.DEEP1 || {}, window.DEEP2 || {});</script>
+<script>window.DEEP = window.DEEP || Object.assign({}, window.DEEP1 || {}, window.DEEP2 || {});</script>
 <script src="src/js/data/start_roadmap.js"></script>
 <script src="src/js/data/faq.js"></script>
 <script src="src/data/fallback_sources.js"></script>
 <script src="src/components/SourcesDrawer.js"></script>
 <script src="src/js/core/store_utils.js"></script>
+<script src="src/js/core/router.js"></script>
 <script src="src/js/views/tiles_renderer.js"></script>
 <script src="src/js/views/detail_deep_steps.js"></script>
 <script src="src/js/views/detail_view.js"></script>
@@ -215,7 +229,6 @@
 <script src="src/js/data/plan_wizard.js"></script>
 <script src="src/js/views/dash_view.js"></script>
 <script src="src/js/core/nav_search.js"></script>
-<script src="src/js/core/router.js"></script>
 <script src="src/js/app.js"></script>
 </body>
 </html>

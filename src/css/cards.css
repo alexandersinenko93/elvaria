@@ -7,7 +7,7 @@
   display: flex; align-items: flex-end; justify-content: space-between;
   margin-bottom: 28px; flex-wrap: wrap; gap: 16px;
 }
-.psh-text h2 { font-family: var(--font-serif); font-size: 30px; color: #FFFFFF; margin-bottom: 6px; }
+.psh-text h2 { font-family: var(--font-serif); font-size: clamp(24px, 4vw, 32px); color: #FFFFFF; margin-bottom: 6px; }
 .psh-text p { font-size: 14.5px; color: var(--ink-secondary); max-width: 70ch; line-height: 1.55; }
 .psh-counts {
   text-align: right; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border-hairline);
@@ -24,20 +24,23 @@
 .ft-search {
   display: flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--border-hairline); border-radius: var(--r-pill);
-  padding: 9px 18px; flex: 1; max-width: 480px; backdrop-filter: blur(14px); transition: all 0.2s ease;
+  padding: 10px 18px; flex: 1; max-width: 480px; backdrop-filter: blur(14px); transition: all 0.2s ease;
+  min-height: 44px;
 }
 .ft-search:focus-within { border-color: var(--border-gold); box-shadow: 0 0 16px var(--gold-subtle); }
-.ft-search svg { color: var(--ink-tertiary); }
+.ft-search svg { color: var(--ink-tertiary); flex-shrink: 0; }
 .ft-search input {
   border: none; background: transparent; outline: none; font-size: 13.5px;
   color: #FFFFFF; width: 100%;
 }
 .ft-search input::placeholder { color: var(--ink-tertiary); }
+
 .ft-chips { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .chip {
   padding: 8px 16px; border-radius: var(--r-pill); font-size: 12.5px; font-weight: 500;
   color: var(--ink-secondary); background: rgba(255, 255, 255, 0.035); border: 1px solid var(--border-hairline);
   cursor: pointer; transition: all 0.2s cubic-bezier(0.2, 0.8, 0.4, 1); backdrop-filter: blur(12px);
+  min-height: 40px; display: inline-flex; align-items: center;
 }
 .chip:hover { border-color: var(--border-gold); color: #FFFFFF; }
 .chip.on {
@@ -45,14 +48,25 @@
   border-color: var(--gold); box-shadow: 0 0 16px var(--gold-glow);
 }
 
+@media (max-width: 768px) {
+  .filter-toolbar { gap: 12px; margin-bottom: 20px; }
+  .ft-search { max-width: 100%; width: 100%; }
+  .ft-chips {
+    flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; padding-bottom: 6px; width: 100%;
+  }
+  .ft-chips::-webkit-scrollbar { display: none; }
+  .chip { white-space: nowrap; flex-shrink: 0; }
+}
+
 /* ── Tiles Grid ── */
 .tiles-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 22px; margin-bottom: 40px;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: clamp(16px, 3vw, 22px); margin-bottom: 40px;
 }
 .tile {
   background: var(--bg-card); border: 1px solid var(--border-hairline);
-  border-radius: var(--r-lg); padding: 26px; text-align: left; cursor: pointer;
+  border-radius: var(--r-lg); padding: clamp(20px, 4vw, 26px); text-align: left; cursor: pointer;
   box-shadow: var(--sh-sm); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
   transition: all 0.24s cubic-bezier(0.2, 0.8, 0.4, 1);
   display: flex; flex-direction: column; position: relative;
@@ -134,7 +148,10 @@
   align-items: center; justify-content: center; font-style: normal; color: #FFFFFF;
 }
 .tile-foot .m { font-size: 12px; color: var(--ink-tertiary); }
-.tile-foot .go { font-size: 12.5px; font-weight: 600; color: var(--gold); transition: transform 0.15s ease; }
+.tile-foot .go {
+  font-size: 12.5px; font-weight: 600; color: var(--gold); transition: transform 0.15s ease;
+  min-height: 44px; display: inline-flex; align-items: center;
+}
 .tile:hover .tile-foot .go { transform: translateX(3px); }
 
 /* ── Platform Groups Bands ── */
@@ -159,7 +176,7 @@
 .fq-btn {
   width: 100%; padding: 18px 24px; text-align: left; background: transparent; border: none;
   cursor: pointer; display: flex; align-items: center; gap: 14px; font-size: 15.5px;
-  color: #FFFFFF; font-weight: 500;
+  color: #FFFFFF; font-weight: 500; min-height: 48px;
 }
 .fq-icon {
   width: 24px; height: 24px; border-radius: 50%; background: var(--gold-subtle); color: var(--gold);

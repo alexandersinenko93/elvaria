@@ -44,7 +44,7 @@ function renderDash() {
       <div class="cps-timeline">
         <div class="cps-tl-title">Der sequentielle Ablauf zur Umsetzung:</div>
         <div class="cps-steps-row">
-          <button class="cps-step-pill on" data-view="dash"><span class="num">1</span> Konzept &amp; Vorhaben</button>
+          <button class="cps-step-pill on" data-view="konzept"><span class="num">1</span> Konzept &amp; Vorhaben</button>
           <span class="cps-arr">→</span>
           <button class="cps-step-pill" data-view="plat"><span class="num">2</span> 14 Gutscheinplattformen</button>
           <span class="cps-arr">→</span>
