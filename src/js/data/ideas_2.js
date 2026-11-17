@@ -63,7 +63,7 @@ window.I_PART2 = [
   {
     r: 4, id: 13,
     t: 'Yoga + Keramik & Töpfern (Clay & Calm)',
-    cat: 'Social & Lifestyle',
+    cat: 'Kunst & Handwerk',
     d: '45 Min Grounding Yin Yoga für Handgelenke & Nacken, 75 Min Handbuilding-Töpfer-Workshop.',
     research: 'Benchmark: Töpferateliers in Hamburg (Eimsbüttel/Altona) boomen. Verbindung aus Achtsamkeit und haptischem Schaffen eigener Design-Objekte.',
     flow: '15 Min Ankommen & Tee, 45 Min Yin Yoga mit Fokus auf Schultergürtel, Finger & Handgelenke, 60 Min Modellieren von Tassen/Schalen an der Werkbank, 15 Min Signieren.',
@@ -139,7 +139,7 @@ window.I_PART2 = [
   {
     r: 5, id: 17,
     t: 'Yoga + Acryl & Leinwand (Paint & Prana)',
-    cat: 'Social & Lifestyle',
+    cat: 'Kunst & Handwerk',
     d: '40 Min intuitiver somatischer Flow, 60 Min freies Acrylmalen auf Keilrahmen mit Drinks.',
     research: 'Benchmark: ArtNight & Paint & Sip Erfolgsmodell. Elvaria öffnet erst die rechte Gehirnhälfte über somatische Bewegung, bevor gemalt wird.',
     flow: '10 Min Farb-Meditation, 30 Min dynamischer Flow für Arme & Schultergürtel, 50 Min freies Malen auf 30x40cm Leinwänden (Spachtel & Pinsel), 10 Min Vernissage.',

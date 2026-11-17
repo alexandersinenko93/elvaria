@@ -6,7 +6,7 @@ window.I_PART3 = [
   {
     r: 1, id: 19,
     t: 'Yoga + Specialty Coffee (Morning Prana & Cupping)',
-    cat: 'Kulinarik & Genuss',
+    cat: 'Social & Lifestyle',
     d: '45 Min aktivierender Morning Flow, danach geführte Kaffeesensorik-Verkostung mit Hamburger Röstern.',
     research: 'Benchmark: Specialty Coffee Cuppings boomen in Metropolen (London, Kopenhagen, Berlin). Partnerschaft mit Public Coffee Roasters (Winterhude) oder Elbgold (Schanze). Hohe B2B- & Wochenend-Attraktivität.',
     flow: '10 Min Kapalabhati & Pranayama zur sensorischen Weckung, 35 Min vitalisierender Vinyasa Morning Flow, 10 Min Pause, 45 Min professionelles Cupping (3 Single-Origin Bohnen, Schlürftechnik, Aromenrad-Analyse).',
@@ -25,7 +25,7 @@ window.I_PART3 = [
   {
     r: 1, id: 20,
     t: 'Yoga + Botanical Art (Earth Flow & Kokedama Workshop)',
-    cat: 'Handwerk & Kunst',
+    cat: 'Kunst & Handwerk',
     d: '60 Min erdender Yin & Grounding Flow, gefolgt vom Binden einer traditionellen japanischen Kokedama-Moospflanze.',
     research: 'Benchmark: Pflanzen-Design & Urban Gardening Workshops sind Dauerbestseller auf Eventbrite & gokonfetti. Kooperation mit Hamburger Blumenmanufaktur oder Pflanzengeschäften im Schanzenviertel.',
     flow: '10 Min Erdungsmeditation (Wurzelchakra), 50 Min Yin Yoga mit Fokus auf Becken & Beine, 60 Min Kokedama-Bau (Akadama-Erde formen, Pflanze einbetten, Moos binden, Aufhängung flechten).',
@@ -44,7 +44,7 @@ window.I_PART3 = [
   {
     r: 1, id: 21,
     t: 'Yoga + Somatic Release (Vagusnerv-Reset & Neuro-Shaking)',
-    cat: 'Achtsamkeit & Ritual',
+    cat: 'Mindfulness & Ritual',
     d: '90 Min neurobiologisch fundierte Stressregulation: Faszienmobilisation, somatisches Zittern & Vagusnerv-Stimulation.',
     research: 'Benchmark: Somatic Experiencing (Dr. Peter Levine) & TRE. Nachfrage nach evidenzbasierter Nervensystem-Entlastung stieg 2024/2025 um 140 %. Starker Zulauf von Berufstätigen mit hoher Bildschirmzeit.',
     flow: '15 Min Psychoedukation Nervensystem (Sympathikus/Parasympathikus), 30 Min sanfter Flow & Psoas-Release, 20 Min geführtes somatisches Schütteln (Neurogenes Zittern), 25 Min Vagus-Tonus (Bhrāmari) & Shavasana.',
@@ -63,7 +63,7 @@ window.I_PART3 = [
   {
     r: 1, id: 22,
     t: 'Yoga + Live Handpan (Harmonic Waves & 432 Hz Flow)',
-    cat: 'Klang & Musik',
+    cat: 'Klang & Entspannung',
     d: '75 Min meditativer Slow Flow, getragen von den metallisch-warmen Tranceklängen einer live gespielten Handpan.',
     research: 'Benchmark: Handpan-Konzerte füllen Konzertsäle; in Kombination mit Yoga entsteht eine unvergleichliche akustische Trance. Kooperation mit Absolventen der Hochschule für Musik und Theater (HfMT) Hamburg.',
     flow: '10 Min Ankommen im Sitzen zu D-Kurd Frequenzen, 45 Min wellenförmiger Vinyasa Slow Flow synchron zu rhythmischen Percussion-Mustern, 20 Min Tiefenentspannung im Liegen mit Raum-Resonanz.',
@@ -101,7 +101,7 @@ window.I_PART3 = [
   {
     r: 1, id: 24,
     t: 'Yoga + Galaxy Night (Celestial Rest & Planetengong)',
-    cat: 'Klang & Musik',
+    cat: 'Klang & Entspannung',
     d: '90 Min multisensorische Nacht: Abgedunkelter Saal mit 4K-Kosmos-Projektion und tiefen Planetengong-Wellen.',
     research: 'Benchmark: Immersive Art Experiences (wie TeamLab / Illuminarium) erzielen Ticketpreise von 55–70 €. Übertragen auf Yoga entsteht ein immersives Schlaflabor für maximale Sinnesabschaltung.',
     flow: '15 Min sanfte Gelenkmobilisation bei Dämmerlicht, 45 Min liegendes Restorative Yoga unter rotierenden Sternbildern und Nebelgalaxien, 30 Min planetare Gong-Klangwelle (Erde- & Mondfrequenzen).',
