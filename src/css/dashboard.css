@@ -107,6 +107,25 @@
 .dql-arrow { font-size: 20px; color: var(--gold); margin-left: auto; transition: transform 0.18s ease; }
 .dql-card:hover .dql-arrow { transform: translateX(5px); }
 
+/* ── Hamburg Studio Hub & Equipment Boxes ── */
+.dash-hamburg-hub {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  gap: 20px; margin-bottom: 36px;
+}
+.hub-box {
+  background: var(--bg-card); border: 1px solid var(--border-hairline); border-radius: var(--r-lg);
+  padding: clamp(20px, 4vw, 28px); box-shadow: var(--sh-sm); backdrop-filter: blur(20px);
+}
+.hub-box b { display: block; font-family: var(--font-serif); font-size: 18px; color: #FFFFFF; margin: 4px 0 8px; }
+.hub-box p { font-size: 13px; color: var(--ink-secondary); line-height: 1.55; margin-bottom: 16px; }
+.hub-pills { display: flex; flex-direction: column; gap: 8px; }
+.hub-pill {
+  font-size: 12.5px; color: var(--ink-secondary); background: rgba(255, 255, 255, 0.035);
+  border: 1px solid var(--border-hairline); border-radius: var(--r-sm); padding: 8px 12px;
+  line-height: 1.45;
+}
+.hub-pill b { display: inline; font-family: inherit; font-size: inherit; color: var(--gold-light); margin: 0; }
+
 /* ── Roadmap Timeline ── */
 .roadmap-head { margin-bottom: 24px; }
 .roadmap-head h2 { font-family: var(--font-serif); font-size: clamp(24px, 4vw, 30px); color: #FFFFFF; margin-bottom: 6px; }

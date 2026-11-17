@@ -98,10 +98,38 @@ function renderDash() {
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
         <div>
-          <b>Das Yoga + X Kompendium erkunden</b>
-          <p>Recherchierte Konzepte: Yoga + Boxen, Soundbath, Wein &amp; JGA, Neon &amp; Beats mit realen Benchmarks &amp; Flows.</p>
+          <b>Das Yoga + X Kompendium erkunden (18 Konzepte)</b>
+          <p>Kombinationen: Boxen, Soundbath, Wein, Neon, Matcha, Keramik, SUP, Live-Cello mit realen Benchmarks &amp; Flows.</p>
         </div>
         <span class="dql-arrow">→</span>
+      </div>
+    </div>
+
+    <!-- 4. Hamburger Partner-Studios (Raum-Deals) & Equipment-Verleih Hub -->
+    <div class="dash-hamburg-hub">
+      <div class="hub-box">
+        <span class="cps-step">HAMBURG RAUM-DEAL DIRECTORY</span>
+        <b>Verifizierte Partner-Studios (Randzeiten-Miete)</b>
+        <p>Keine 2.000 € Festmiete. Stundenweise Anmietung leerstehender Spitzen-Locations in Eimsbüttel, Hoheluft &amp; Altona:</p>
+        <div class="hub-pills">
+          <span class="hub-pill"><b>Khôra Studio</b> · Eimsbüttel (200 m², ab 40 €/Std.)</span>
+          <span class="hub-pill"><b>The Shala</b> · Eimsbüttel (140 m² Feng-Shui Loft)</span>
+          <span class="hub-pill"><b>YogaEasy Space</b> · Hoheluft (54 m², 28 Matten, 40 €/Std.)</span>
+          <span class="hub-pill"><b>White Collar Boxing Club</b> · Niendorf (Ring &amp; Pratzensaal)</span>
+          <span class="hub-pill"><b>Swawole Atelier</b> · Eppendorfer Weg (Keramik &amp; Töpfern)</span>
+          <span class="hub-pill"><b>SUP CLUB Hamburg</b> · Isekai (Yoga-Boards am Fleet)</span>
+        </div>
+      </div>
+      <div class="hub-box">
+        <span class="cps-step">EQUIPMENT-VERLEIH &amp; LOGISTIK</span>
+        <b>Das mobile „Studio im Kofferraum“</b>
+        <p>Ausrüstung auf Abruf – maximale Flexibilität bei minimaler Kapitalbindung:</p>
+        <div class="hub-pills">
+          <span class="hub-pill"><b>Silent Disco Kopfhörer:</b> 25 Stk. + 3 Sender ca. 125–140 €/WE (Lärmschutz-Joker)</span>
+          <span class="hub-pill"><b>432 Hz Kristallschalen:</b> 7-teiliges Quarz-Set in Schutztaschen</span>
+          <span class="hub-pill"><b>Box-Equipment:</b> 10 Paar Focus Mitts &amp; waschbare Gel-Quickwraps</span>
+          <span class="hub-pill"><b>UV-Schwarzlicht Fluter:</b> 4x 50W LED Fluter (395nm) &amp; Bio-Neonfarben</span>
+        </div>
       </div>
     </div>
   `;
