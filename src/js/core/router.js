@@ -8,23 +8,22 @@ let RETURN_TO = null;
 let RETURN_Y = null;
 let FROM_HASH = false;
 
-const VIEWS = ['dash', 'wiz', 'plan', 'anhang', 'detail'];
-const BASETITLE = 'Elvaria · Interaktiver Businessplan';
+const VIEWS = ['konzept', 'plat', 'ideen', 'roadmap', 'detail'];
+const BASETITLE = 'Elvaria · Yoga als Erlebnis';
 
 function readHash() {
   const h = (location.hash || '').replace(/^#\/?/, '').trim();
-  if (!h || h === 'start' || h === 'dash') return { v: 'dash' };
-  if (h === 'fahrplan' || h === 'roadmap') return { v: 'dash', tab: 'roadmap' };
-  if (h === 'assistent' || h === 'wiz') return { v: 'wiz' };
-  if (h === 'businessplan' || h === 'plan') return { v: 'plan' };
-  if (h === 'anhang' || h === 'plat' || h === 'ideen' || h === 'faq') return { v: 'anhang', pane: h };
+  if (!h || h === 'start' || h === 'dash' || h === 'konzept') return { v: 'konzept' };
+  if (h === 'fahrplan' || h === 'roadmap') return { v: 'roadmap' };
+  if (h === 'plattformen' || h === 'plat') return { v: 'plat' };
+  if (h === 'ideen' || h === 'yoga-x') return { v: 'ideen' };
   if (h.startsWith('detail')) {
     const params = new URLSearchParams(h.split('?')[1] || '');
     return { v: 'detail', kind: params.get('kind') || 'p', id: params.get('id') || 'ev' };
   }
   if (h.startsWith('p/')) return { v: 'detail', kind: 'p', id: h.slice(2) };
   if (h.startsWith('i/')) return { v: 'detail', kind: 'i', id: +h.slice(2) };
-  return { v: 'dash' };
+  return { v: 'konzept' };
 }
 
 function setHash(h, replace) {
@@ -35,63 +34,54 @@ function setHash(h, replace) {
   } catch(e) {}
 }
 
-function showView(v, fromHash, pane) {
+function showView(v, fromHash) {
   const aliasMap = {
-    start: 'dash', dash: 'dash',
-    assistent: 'wiz', wiz: 'wiz',
-    businessplan: 'plan', plan: 'plan',
-    anhang: 'anhang', plat: 'anhang', ideen: 'anhang', faq: 'anhang',
+    start: 'konzept', dash: 'konzept', konzept: 'konzept',
+    plat: 'plat', plattformen: 'plat',
+    ideen: 'ideen', 'yoga-x': 'ideen',
+    roadmap: 'roadmap', fahrplan: 'roadmap',
     detail: 'detail'
   };
-  const normV = aliasMap[v] || 'dash';
-  if (v === 'plat' || v === 'ideen' || v === 'faq') pane = v;
+  const normV = aliasMap[v] || 'konzept';
 
   // 1. Navigation Active States
-  $$('#hnav [data-v], #hnav [data-sub]').forEach(btn => {
-    const bv = aliasMap[btn.dataset.v || btn.dataset.sub] || 'dash';
+  $$('#hnav [data-v]').forEach(btn => {
+    const bv = aliasMap[btn.dataset.v] || 'konzept';
     const on = bv === normV;
     btn.classList.toggle('on', on);
     btn.setAttribute('aria-current', on ? 'page' : 'false');
   });
 
-  // 2. Hide all views & subpages, reveal target view
+  // 2. Hide all views & reveal target view
   $$('.view, .subpage').forEach(sec => sec.classList.remove('on'));
-  const target = $('#v-' + normV) || $('#sub-' + normV);
+  const target = $('#v-' + normV);
   if (target) target.classList.add('on');
 
-  // 3. Hero Visibility: only visible on Start/Dashboard
+  // 3. Hero Visibility: visible on Konzept & Übersicht
   const hero = $('#hero');
-  if (hero) hero.style.display = normV === 'dash' ? 'block' : 'none';
+  if (hero) hero.style.display = (normV === 'konzept') ? 'block' : 'none';
 
   document.body.classList.remove('pd');
 
   // 4. Render contents for target view
-  if (normV === 'dash') {
-    if (typeof renderDash === 'function') renderDash();
-    if (typeof renderRoadmapView === 'function') renderRoadmapView();
-  }
-  if (normV === 'wiz' && typeof renderWiz === 'function') renderWiz();
-  if (normV === 'plan' && typeof renderPlan === 'function') renderPlan();
-  if (normV === 'anhang') {
-    if (typeof renderP === 'function') renderP();
-    if (typeof renderI === 'function') renderI();
-    if (typeof renderFAQ === 'function') renderFAQ();
-    if (pane && typeof setAnhang === 'function') setAnhang(pane);
-  }
+  if (normV === 'konzept' && typeof renderDash === 'function') renderDash();
+  if (normV === 'plat' && typeof renderPlatformsView === 'function') renderPlatformsView();
+  if (normV === 'ideen' && typeof renderIdeasView === 'function') renderIdeasView();
+  if (normV === 'roadmap' && typeof renderRoadmapView === 'function') renderRoadmapView();
   if (typeof refreshProgress === 'function') refreshProgress();
 
   // 5. Update Hash & Title
   const titles = {
-    dash: 'Start & Übersicht',
-    wiz: 'Assistent (4 Min)',
-    plan: 'Businessplan & Rechner',
-    anhang: 'Anhang & Kanäle',
-    detail: 'Detail & Tutorial'
+    konzept: 'Vorhaben & Change-Plan',
+    plat: '14 Gutscheinplattformen & Zugänge',
+    ideen: 'Yoga + X Kompendium & Research',
+    roadmap: '7-Schritte-Fahrplan',
+    detail: 'Detail & Anleitung'
   };
-  document.title = `Elvaria · ${titles[normV] || 'Businessplan'}`;
+  document.title = `Elvaria · ${titles[normV] || 'Event-Konzept'}`;
 
   if (!fromHash) {
-    const hash = (normV === 'dash') ? '#/start' : '#/' + (normV === 'wiz' ? 'assistent' : normV === 'plan' ? 'businessplan' : normV);
+    const hash = (normV === 'konzept') ? '#/konzept' : '#/' + normV;
     setHash(hash);
   }
 
@@ -106,7 +96,7 @@ function showSubpage(page, fromHash, extra) {
     openDetail(extra.kind, extra.id);
     return;
   }
-  showView(page, fromHash, extra ? extra.pane : null);
+  showView(page, fromHash);
 }
 
 function applyState() {
@@ -116,45 +106,35 @@ function applyState() {
     if (s.v === 'detail') {
       if (typeof openDetail === 'function') openDetail(s.kind, s.id);
     } else {
-      showView(s.v, true, s.pane);
-      if (s.tab && typeof switchDashTab === 'function') switchDashTab(s.tab);
+      showView(s.v, true);
     }
   } finally {
     FROM_HASH = false;
   }
 }
 
-// Global click delegation for all view, subpage, wizard, and scroll triggers
+// Global click delegation for all view and navigation triggers
 document.addEventListener('click', e => {
-  const w = e.target.closest('[data-wiz]');
-  if (w) { e.preventDefault(); showView('wiz'); return; }
-
-  const dt = e.target.closest('[data-dash-tab]');
-  if (dt && !dt.classList.contains('dash-cat-btn')) {
-    e.preventDefault();
-    showView('dash');
-    if (typeof switchDashTab === 'function') switchDashTab(dt.dataset.dashTab);
-    return;
-  }
-
   const v = e.target.closest('[data-view]');
   if (v) {
     e.preventDefault();
     showView(v.dataset.view);
-    if (v.dataset.scroll) {
-      setTimeout(() => {
-        const el = $('#pl-' + v.dataset.scroll);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 60);
-    }
     return;
   }
 
-  const s = e.target.closest('[data-sub]');
-  if (s) { e.preventDefault(); showView(s.dataset.sub); return; }
+  const btnP = e.target.closest('[data-t="p"]');
+  if (btnP) {
+    e.preventDefault();
+    if (typeof openDetail === 'function') openDetail('p', btnP.dataset.id);
+    return;
+  }
 
-  const nv = e.target.closest('[data-v]');
-  if (nv && !nv.closest('#hnav')) { e.preventDefault(); showView(nv.dataset.v); return; }
+  const btnI = e.target.closest('[data-t="i"]');
+  if (btnI) {
+    e.preventDefault();
+    if (typeof openDetail === 'function') openDetail('i', +btnI.dataset.id);
+    return;
+  }
 });
 
 window.addEventListener('hashchange', applyState);

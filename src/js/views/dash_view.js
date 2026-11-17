@@ -1,212 +1,165 @@
 /**
- * ELVARIA Dashboard & Roadmap Views
- * Live financial computation, reactive scenario switching, subpage navigation
+ * ELVARIA Change-Plan & Executive Summary View
+ * Das Vorhaben: Vom festen Kursstudio zum skalierbaren Event-Business
+ * 100% frei von Finanztabellen und Rechtsform-Rechnern
  */
 
 function renderDash() {
-  const r = (typeof planCalc === 'function') ? planCalc() : calc(SCEN.basis);
-  const pst = (typeof PST !== 'undefined' && PST) ? PST : { scen: 'basis', legalForm: 'Einzelunternehmen', capital: '5.560 €' };
+  const container = $('#dashPaneUebersicht');
+  if (!container) return;
 
-  const b2bDB = Math.round(r.dbB2B || 1510).toLocaleString('de-DE');
-  const b2cDB = Math.round(r.dbB2C || 439).toLocaleString('de-DE');
-  const resTax = Math.round(r.ergebnis || 7433).toLocaleString('de-DE');
-  const fixCost = Math.round(r.fix || 1450).toLocaleString('de-DE');
-  const breakEven = (r.beMix && isFinite(r.beMix)) ? r.beMix : 3;
-  const legalForm = pst.legalForm || 'Einzelunternehmen';
-  const startCapital = pst.capital || '5.560 €';
+  container.innerHTML = `
+    <!-- 1. Executive Summary: Das Vorhaben -->
+    <div class="change-plan-summary">
+      <div class="cps-head">
+        <span class="cps-badge">DAS VORHABEN · MASTER- &amp; CHANGE-PLAN</span>
+        <h2>Yoga als Erlebnis &amp; Event statt Kursplan.</h2>
+        <p>Der vollständige Strategie-Plan zur Transformation von Elvaria: Wie das Studio ohne fixe Raummiete über die 14 großen Gutschein-Plattformen und innovative Yoga + X Erlebnisse skaliert.</p>
+      </div>
 
-  // 1. One-Sentence Bottom Line
-  const haBig = $('#haSentence');
-  if (haBig) {
-    haBig.innerHTML = `Kurz gesagt: <em>ein Abend für eine Firma</em> bringt <b>${b2bDB} €</b>, <em>ein Abend für Einzelne</em> <b>${b2cDB} €</b>. Der Unterschied ist der Raum.`;
-  }
-  const mHeroCap = $('#mHeroCapital');
-  if (mHeroCap) mHeroCap.textContent = startCapital;
-
-  // 2. Interactive Scenario & Config Panel
-  const dynBox = $('#dynKpiBox');
-  if (dynBox) {
-    dynBox.innerHTML = `
-      <div class="dyn-config-box">
-        <div class="dyn-cfg-head">
-          <h3><span class="dot" style="width:7px;height:7px;border-radius:50%;background:var(--gold-accent);display:inline-block;margin-right:6px"></span> Live-Konfiguration &amp; Schnell-Szenario</h3>
-          <span>Werte passen sich in Echtzeit an Businessplan &amp; Assistent an</span>
+      <div class="cps-grid">
+        <div class="cps-card">
+          <span class="cps-step">SÄULE 01 · MODELL</span>
+          <b>Event statt Kursplan</b>
+          <p>Verzicht auf das unrentable 10-Matten-Drop-in-Raster. Fokus auf buchbare Signature-Events (Yoga + X) und B2B-Firmenformate.</p>
         </div>
-        <div class="dyn-cfg-row">
-          <div class="cfg-group">
-            <span class="cfg-lbl">Szenario</span>
-            <button class="cfg-pill ${pst.scen==='konservativ'?'on':''}" data-scen="konservativ">Vorsichtig</button>
-            <button class="cfg-pill ${pst.scen==='basis'?'on':''}" data-scen="basis">Realistisch</button>
-            <button class="cfg-pill ${pst.scen==='ambitioniert'?'on':''}" data-scen="ambitioniert">Ehrgeizig</button>
-          </div>
-          <div class="cfg-group">
-            <span class="cfg-lbl">Rechtsform</span>
-            <button class="cfg-pill ${legalForm==='Einzelunternehmen'?'on':''}" data-legal="Einzelunternehmen">Einzelunternehmen</button>
-            <button class="cfg-pill ${legalForm==='UG / GmbH'?'on':''}" data-legal="UG / GmbH">UG / GmbH</button>
-          </div>
-          <div class="cfg-group">
-            <span class="cfg-lbl">Startgeld</span>
-            <button class="cfg-pill ${startCapital==='5.560 €'?'on':''}" data-cap="5.560 €">Lean (5.560 €)</button>
-            <button class="cfg-pill ${startCapital==='14.200 €'?'on':''}" data-cap="14.200 €">Voll (14.200 €)</button>
-          </div>
+        <div class="cps-card">
+          <span class="cps-step">SÄULE 02 · HEBEL</span>
+          <b>Der Raum-Deal</b>
+          <p>Keine 2.000 € Festmiete. Partnerschaften mit bestehenden Studios in Randzeiten, Rooftops, Hotel-Suiten und Firmenräumen.</p>
+        </div>
+        <div class="cps-card">
+          <span class="cps-step">SÄULE 03 · VERTRIEB</span>
+          <b>14 Gutschein-Plattformen</b>
+          <p>Automatisierte Kundengewinnung über Erlebnismärkte (gokonfetti, GetYourGuide) und Gutscheinnetzwerke (Wunschgutschein, Atento).</p>
+        </div>
+        <div class="cps-card">
+          <span class="cps-step">SÄULE 04 · RECHT</span>
+          <b>100% Verifiziert</b>
+          <p>3 Jahre Gutscheingültigkeit (§ 195 BGB), HWG-konforme Kommunikation ohne Heilaussagen, VBG-Pflicht &amp; § 3 Nr. 34 EStG.</p>
         </div>
       </div>
 
-      <div class="kpi-dyn-grid">
-        <div class="kpi-dyn-card">
-          <span class="kpi-dyn-lbl">Rechtsform</span>
-          <b class="kpi-dyn-val" style="font-size:20px">${legalForm}</b>
-          <span class="kpi-dyn-sub">Haftung persönlich, keine Notarkosten</span>
-        </div>
-        <div class="kpi-dyn-card gold-border">
-          <span class="kpi-dyn-lbl">Startkapital</span>
-          <b class="kpi-dyn-val gold">${startCapital}</b>
-          <span class="kpi-dyn-sub">Anschaffung Matten, Deko &amp; Puffer</span>
-        </div>
-        <div class="kpi-dyn-card">
-          <span class="kpi-dyn-lbl">Fixkosten / Monat</span>
-          <b class="kpi-dyn-val">${fixCost} €</b>
-          <span class="kpi-dyn-sub">Eversports, Buchhaltung, VBG</span>
-        </div>
-        <div class="kpi-dyn-card">
-          <span class="kpi-dyn-lbl">Kapazität</span>
-          <b class="kpi-dyn-val">8 Events</b>
-          <span class="kpi-dyn-sub">Solo-Maximum ohne Personal</span>
-        </div>
-        <div class="kpi-dyn-card gold-border">
-          <span class="kpi-dyn-lbl">Ergebnis v. Steuer</span>
-          <b class="kpi-dyn-val green">${resTax} €</b>
-          <span class="kpi-dyn-sub">Monatlicher Rohgewinn vor ESt</span>
-        </div>
-        <div class="kpi-dyn-card">
-          <span class="kpi-dyn-lbl">Anfangen</span>
-          <b class="kpi-dyn-val">7 Schritte</b>
-          <span class="kpi-dyn-sub">Dauert bis zum ersten Euro</span>
-        </div>
-        <div class="kpi-dyn-card">
-          <span class="kpi-dyn-lbl">Kerngeschäft (B2C)</span>
-          <b class="kpi-dyn-val gold">${b2cDB} €</b>
-          <span class="kpi-dyn-sub">Bleiben pro offenem Abend (mit Deal)</span>
-        </div>
-        <div class="kpi-dyn-card gold-border">
-          <span class="kpi-dyn-lbl">Bester Termin (B2B)</span>
-          <b class="kpi-dyn-val green">${b2bDB} €</b>
-          <span class="kpi-dyn-sub">Firmen-Event, 79% Deckungsbeitrag</span>
-        </div>
-        <div class="kpi-dyn-card">
-          <span class="kpi-dyn-lbl">Nötige Termine</span>
-          <b class="kpi-dyn-val">${breakEven} Events</b>
-          <span class="kpi-dyn-sub">Monatlich, um alle Fixkosten zu decken</span>
+      <!-- Sequentieller Ablauf -->
+      <div class="cps-timeline">
+        <div class="cps-tl-title">Der sequentielle Ablauf zur Umsetzung:</div>
+        <div class="cps-steps-row">
+          <button class="cps-step-pill on" data-view="dash"><span class="num">1</span> Konzept &amp; Vorhaben</button>
+          <span class="cps-arr">→</span>
+          <button class="cps-step-pill" data-view="plat"><span class="num">2</span> 14 Gutscheinplattformen</button>
+          <span class="cps-arr">→</span>
+          <button class="cps-step-pill" data-view="ideen"><span class="num">3</span> Yoga + X Konzepte</button>
+          <span class="cps-arr">→</span>
+          <button class="cps-step-pill" data-view="roadmap"><span class="num">4</span> 7-Schritte-Fahrplan</button>
         </div>
       </div>
-    `;
+    </div>
 
-    // Bind configuration listeners
-    $$('#dynKpiBox [data-scen]').forEach(btn => {
-      btn.onclick = () => {
-        const sc = btn.dataset.scen;
-        if (typeof PST !== 'undefined' && SCEN[sc]) {
-          PST.scen = sc;
-          PST.A = Object.assign({}, SCEN[sc]);
-          if (typeof savePlan === 'function') savePlan();
-          renderDash();
-          if (typeof renderPlan === 'function') renderPlan();
-        }
-      };
-    });
-    $$('#dynKpiBox [data-legal]').forEach(btn => {
-      btn.onclick = () => {
-        if (typeof PST !== 'undefined') {
-          PST.legalForm = btn.dataset.legal;
-          if (typeof savePlan === 'function') savePlan();
-          renderDash();
-        }
-      };
-    });
-    $$('#dynKpiBox [data-cap]').forEach(btn => {
-      btn.onclick = () => {
-        if (typeof PST !== 'undefined') {
-          PST.capital = btn.dataset.cap;
-          if (typeof savePlan === 'function') savePlan();
-          renderDash();
-        }
-      };
-    });
-  }
+    <!-- 2. Ist-Analyse vs. Neue Zielstruktur -->
+    <div class="transformation-compare">
+      <div class="tc-col tc-before">
+        <div class="tc-tag">VORHER · STATUS QUO</div>
+        <h3>Klassisches Kursstudio</h3>
+        <ul class="tc-list">
+          <li><b>Feste Adresse:</b> Henriettenweg 4, feste Miete, hohe Grundkosten.</li>
+          <li><b>Starres Raster:</b> 6 feste Kurse/Woche, max. 10 Matten pro Einheit.</li>
+          <li><b>Kleine Tickets:</b> Einzelstunden (15–22,50 €) mit hoher Fluktuation.</li>
+          <li><b>Kaltakquise nötig:</b> Volles Marketing-Risiko liegt allein beim Studio.</li>
+        </ul>
+      </div>
 
-  // 3. Weitermachen-Banner
-  let last = null;
-  try { last = JSON.parse(store.get('elvaria-last') || 'null'); } catch(e) {}
-  let rh = '';
-  if (last) {
-    let nm = null, len = 0, key = null;
-    if (last.kind === 'p') { const p = P.find(x => x.id === last.id); if (p) { nm = p.n; len = p.steps.length; key = 'p-' + p.id; } }
-    else if (last.kind === 'i') { const it = I[+last.id]; if (it) { nm = it.t; len = it.s.length; key = 'i-' + last.id; } }
-    if (nm) {
-      const dn = key ? progOf(key, len) : 0;
-      const sub = !key ? 'zuletzt geöffnet' : dn === 0 ? 'noch nicht begonnen' : dn === len ? 'fertig' : `Schritt ${dn + 1} von ${len}`;
-      rh = `<button class="resume" data-sub="detail" data-t="${last.kind}" data-id="${last.id}">
-        <span class="rt"><b>Weitermachen: ${nm}</b><span>${sub}</span></span>
-        <span class="rgo" style="color:var(--gold-accent)">öffnen →</span>
-      </button>`;
-    }
-  }
-  const resEl = $('#resume');
-  if (resEl) resEl.innerHTML = rh;
+      <div class="tc-col tc-after">
+        <div class="tc-tag on">JETZT · DAS NEUE ELVARIA-KONZEPT</div>
+        <h3>Skalierbares Event- &amp; Plattform-Business</h3>
+        <ul class="tc-list">
+          <li><b>Nomadisch &amp; Raum-Deals:</b> 0 € fixe Raummiete. Pop-ups, Partnerstudios in Randzeiten &amp; Hotels.</li>
+          <li><b>Signature Experiences:</b> Yoga + X (Boxen, Soundbath, Wein, Neon) mit hohem Erlebniswert.</li>
+          <li><b>Automatischer Vertrieb:</b> Listung auf den 14 großen Gutschein- und Erlebnismärkten.</li>
+          <li><b>B2B-Firmenkunden:</b> Steuerfreie betriebliche Gesundheitsförderung (§ 3 Nr. 34 EStG).</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 3. Schnellzugriff zu den Kernbereichen -->
+    <div class="dash-quick-links">
+      <div class="dql-card" onclick="showView('plat')">
+        <div class="dql-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="7" y1="8" x2="17" y2="8"/><line x1="7" y1="12" x2="13" y2="12"/><line x1="7" y1="16" x2="15" y2="16"/></svg>
+        </div>
+        <div>
+          <b>Die 14 Gutscheinplattformen ansehen</b>
+          <p>Status-Ampel (● 3 sofort offen, ◐ 7 mit Bedingung), Zugangs-URLs &amp; Workarounds ohne eigenes Studio.</p>
+        </div>
+        <span class="dql-arrow">→</span>
+      </div>
+
+      <div class="dql-card" onclick="showView('ideen')">
+        <div class="dql-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div>
+          <b>Das Yoga + X Kompendium erkunden</b>
+          <p>Recherchierte Konzepte: Yoga + Boxen, Soundbath, Wein &amp; JGA, Neon &amp; Beats mit realen Benchmarks &amp; Flows.</p>
+        </div>
+        <span class="dql-arrow">→</span>
+      </div>
+    </div>
+  `;
+
+  // Delegate events for cps-step-pill
+  $$('#dashPaneUebersicht [data-view]').forEach(btn => {
+    btn.onclick = (e) => {
+      e.preventDefault();
+      showView(btn.dataset.view);
+    };
+  });
 }
 
 function renderRoadmapView() {
-  const sd = DONE['start'] && Array.isArray(DONE['start']) ? DONE['start'] : [];
-  const sdone = sd.filter(Boolean).length;
-  const startList = (typeof START !== 'undefined' && Array.isArray(START)) ? START : [];
+  const container = $('#dashPaneRoadmap');
+  if (!container) return;
+  if (typeof window.ROADMAP_STEPS === 'undefined') return;
 
-  const statEl = $('#statusbar');
-  if (statEl) {
-    statEl.innerHTML = `
-      <div class="sb-txt">
-        <b>Fortschritt: ${sdone} von 7 Schritten im Fahrplan erledigt</b>
-        <span>Jeder Schritt bringt dich näher an den ersten Euro</span>
-      </div>`;
-  }
+  const steps = window.ROADMAP_STEPS;
+  let html = `
+    <div class="roadmap-head">
+      <span class="cps-badge">SEQUENTIELLER FAHRPLAN</span>
+      <h2>In 7 Schritten zum ersten Event &amp; Euro</h2>
+      <p>Chronologisch aufeinander aufbauend. Jeder Schritt ist abhakbar und speichert den Fortschritt lokal.</p>
+    </div>
+    <div class="roadmap-timeline-list">
+  `;
 
-  const roadEl = $('#roadmap');
-  if (roadEl) {
-    roadEl.innerHTML = startList.map((x, i) => {
-      const on = !!sd[i];
-      const dots = (x.zuerst || []).map(z => `<span>• ${z}</span>`).join(' ');
-      return `<article class="rm-step ${on ? 'done' : ''}" id="rm-${i}">
-        <div class="rm-step-header">
-          <b>${x.n}. ${x.t}</b>
-          <button class="step-chk ${on ? 'done' : ''}" data-sc="${i}" aria-label="${x.t} abhaken">${on ? '✓' : ''}</button>
+  steps.forEach((st, idx) => {
+    const isDone = typeof isStepDone === 'function' ? isStepDone(st.id) : false;
+    html += `
+      <div class="roadmap-item ${isDone ? 'done' : ''}" data-step-id="${st.id}">
+        <div class="rmi-left">
+          <span class="rmi-num">${idx + 1}</span>
+          <button class="rmi-check ${isDone ? 'checked' : ''}" onclick="toggleStepRoadmap('${st.id}')" aria-label="Schritt abhaken">
+            ${isDone ? '✓' : ''}
+          </button>
         </div>
-        <p style="font-size:13px;color:var(--ink-secondary);margin:8px 0">${x.kurz || ''}</p>
-        <div class="rm-step-body">
-          ${(x.b || []).map(t => `<p style="margin-bottom:6px">${t}</p>`).join('')}
-          <div style="margin-top:10px;font-size:12px;color:var(--navy-deep)"><b>Fokus:</b> ${dots}</div>
+        <div class="rmi-body">
+          <div class="rmi-meta"><span class="rmi-phase">${st.phase}</span><span class="rmi-time">${st.time}</span></div>
+          <h3>${st.title}</h3>
+          <p>${st.desc}</p>
+          <div class="rmi-subtasks">
+            ${(st.tasks || []).map(t => `<div class="rmi-task"><i>•</i><span>${t}</span></div>`).join('')}
+          </div>
         </div>
-      </article>`;
-    }).join('');
-
-    $$('#roadmap .step-chk').forEach(b => {
-      b.onclick = (e) => {
-        e.stopPropagation();
-        const i = +b.dataset.sc;
-        if (!Array.isArray(DONE['start'])) DONE['start'] = [];
-        DONE['start'][i] = !DONE['start'][i];
-        saveDone();
-        renderRoadmapView();
-        if (typeof updateHeaderProgress === 'function') updateHeaderProgress();
-      };
-    });
-  }
-
-  const simEl = $('#simple');
-  if (simEl && typeof SIMPLE !== 'undefined' && Array.isArray(SIMPLE)) {
-    simEl.innerHTML = SIMPLE.map(([q, a]) => `
-      <div class="faq-item">
-        <div class="fq-btn"><b>${q}</b></div>
-        <div class="fa-body" style="display:block">${a}</div>
       </div>
-    `).join('');
+    `;
+  });
+
+  html += '</div>';
+  container.innerHTML = html;
+}
+
+function toggleStepRoadmap(stepId) {
+  if (typeof toggleStep === 'function') {
+    toggleStep(stepId);
+    renderRoadmapView();
+    if (typeof refreshProgress === 'function') refreshProgress();
   }
 }
