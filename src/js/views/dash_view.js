@@ -1,8 +1,9 @@
 /**
- * ELVARIA Change-Plan & Executive Summary View
- * Das Vorhaben: Vom festen Kursstudio zum skalierbaren Event-Business
- * 100% frei von Finanztabellen und Rechtsform-Rechnern
+ * ELVARIA Change-Plan & Roadmap View
+ * Makro-Fahrplan (6 Haupt-Phasen) & Kleinteiliger Detail-Fahrplan pro Part
  */
+let ROADMAP_MODE = 'deep';
+let ROADMAP_FILTER = 'all';
 
 function renderDash() {
   const container = $('#dashPaneUebersicht');
@@ -50,7 +51,7 @@ function renderDash() {
           <span class="cps-arr">→</span>
           <button class="cps-step-pill" data-view="ideen"><span class="num">3</span> Yoga + X Konzepte</button>
           <span class="cps-arr">→</span>
-          <button class="cps-step-pill" data-view="roadmap"><span class="num">4</span> 7-Schritte-Fahrplan</button>
+          <button class="cps-step-pill" data-view="roadmap"><span class="num">4</span> Fahrplan</button>
         </div>
       </div>
     </div>
@@ -143,44 +144,129 @@ function renderDash() {
   });
 }
 
+function setRoadmapMode(mode) {
+  ROADMAP_MODE = mode;
+  renderRoadmapView();
+}
+
+function setRoadmapFilter(partId) {
+  ROADMAP_FILTER = partId;
+  renderRoadmapView();
+}
+
 function renderRoadmapView() {
   const container = $('#dashPaneRoadmap');
   if (!container) return;
-  if (typeof window.ROADMAP_STEPS === 'undefined') return;
+  const parts = window.ROADMAP_PARTS || [];
+  const allSteps = window.ROADMAP_STEPS || [];
+  const totalDone = allSteps.filter(s => typeof isStepDone === 'function' && isStepDone(s.id)).length;
+  const totalPct = allSteps.length ? Math.round((totalDone / allSteps.length) * 100) : 0;
 
-  const steps = window.ROADMAP_STEPS;
   let html = `
     <div class="roadmap-head">
-      <span class="cps-badge">SEQUENTIELLER FAHRPLAN</span>
-      <h2>In 7 Schritten zum ersten Event &amp; Euro</h2>
-      <p>Chronologisch aufeinander aufbauend. Jeder Schritt ist abhakbar und speichert den Fortschritt lokal.</p>
-    </div>
-    <div class="roadmap-timeline-list">
-  `;
-
-  steps.forEach((st, idx) => {
-    const isDone = typeof isStepDone === 'function' ? isStepDone(st.id) : false;
-    html += `
-      <div class="roadmap-item ${isDone ? 'done' : ''}" data-step-id="${st.id}">
-        <div class="rmi-left">
-          <span class="rmi-num">${idx + 1}</span>
-          <button class="rmi-check ${isDone ? 'checked' : ''}" onclick="toggleStepRoadmap('${st.id}')" aria-label="Schritt abhaken">
-            ${isDone ? '✓' : ''}
-          </button>
-        </div>
-        <div class="rmi-body">
-          <div class="rmi-meta"><span class="rmi-phase">${st.phase}</span><span class="rmi-time">${st.time}</span></div>
-          <h3>${st.title}</h3>
-          <p>${st.desc}</p>
-          <div class="rmi-subtasks">
-            ${(st.tasks || []).map(t => `<div class="rmi-task"><i>•</i><span>${t}</span></div>`).join('')}
-          </div>
+      <div class="psh-text">
+        <span class="cps-badge">MASTER- &amp; DETAIL-FAHRPLAN</span>
+        <h2>In 6 Parts &amp; ${allSteps.length} Schritten zum Event-Business</h2>
+        <p>Chronologisch aufeinander aufbauend: Wähle zwischen dem übergeordneten Phasen-Überblick und dem kleinteiligen Detail-Fahrplan.</p>
+      </div>
+      <div class="rm-mode-bar">
+        <div class="rm-mode-tabs">
+          <button class="chip ${ROADMAP_MODE === 'macro' ? 'on' : ''}" onclick="setRoadmapMode('macro')">Grober Fahrplan (6 Phasen)</button>
+          <button class="chip ${ROADMAP_MODE === 'deep' ? 'on' : ''}" onclick="setRoadmapMode('deep')">Kleinteiliger Detail-Fahrplan (${totalDone}/${allSteps.length} erledigt · ${totalPct}%)</button>
         </div>
       </div>
-    `;
-  });
+    </div>
+  `;
 
-  html += '</div>';
+  if (ROADMAP_MODE === 'macro') {
+    // ── 1. Grober Fahrplan (Die 6 Makro-Phasen) ──
+    html += '<div class="macro-roadmap-grid">';
+    parts.forEach(part => {
+      const partDone = part.steps.filter(s => typeof isStepDone === 'function' && isStepDone(s.id)).length;
+      const partPct = part.steps.length ? Math.round((partDone / part.steps.length) * 100) : 0;
+      const isPartFull = partDone === part.steps.length && part.steps.length > 0;
+
+      html += `
+        <div class="macro-part-card ${isPartFull ? 'full' : ''}">
+          <div class="mpc-top">
+            <span class="cps-step">PART 0${part.num} · ${part.timeframe}</span>
+            <span class="mpc-badge ${isPartFull ? 'done' : ''}">${partDone} / ${part.steps.length} erledigt</span>
+          </div>
+          <h3>${part.title}</h3>
+          <p class="mpc-lead">${part.lead}</p>
+          <div class="mpc-pbar"><i style="width:${partPct}%"></i></div>
+          <div class="mpc-steps-preview">
+            ${part.steps.map(s => {
+              const done = typeof isStepDone === 'function' && isStepDone(s.id);
+              return `<div class="mpc-mini-step ${done ? 'done' : ''}"><i>${done ? '✓' : '○'}</i><span>${s.title}</span></div>`;
+            }).join('')}
+          </div>
+          <button class="mpc-btn" onclick="setRoadmapFilter('${part.id}'); setRoadmapMode('deep');">
+            Detail-Fahrplan für Part ${part.num} öffnen (${part.steps.length} Schritte) →
+          </button>
+        </div>
+      `;
+    });
+    html += '</div>';
+  } else {
+    // ── 2. Kleinteiliger Detail-Fahrplan pro Part ──
+    html += `
+      <div class="filter-toolbar rm-filter-toolbar">
+        <div class="ft-chips" id="fRmChips">
+          <button class="chip ${ROADMAP_FILTER === 'all' ? 'on' : ''}" onclick="setRoadmapFilter('all')">Alle 6 Parts (${allSteps.length})</button>
+          ${parts.map(p => `
+            <button class="chip ${ROADMAP_FILTER === p.id ? 'on' : ''}" onclick="setRoadmapFilter('${p.id}')">Part ${p.num}: ${p.title.split(' ')[0]}</button>
+          `).join('')}
+        </div>
+      </div>
+      <div class="roadmap-timeline-list">
+    `;
+
+    const visibleParts = ROADMAP_FILTER === 'all' ? parts : parts.filter(p => p.id === ROADMAP_FILTER);
+
+    visibleParts.forEach(part => {
+      const partDone = part.steps.filter(s => typeof isStepDone === 'function' && isStepDone(s.id)).length;
+      html += `
+        <div class="rm-part-section">
+          <div class="pgrpband" style="--pc:var(--gold);margin-top:20px">
+            <span class="pb-dot">Part ${part.num}</span>
+            <b>${part.title}</b>
+            <span class="pb-r">${part.timeframe}</span>
+            <span class="pb-n">${partDone} / ${part.steps.length}</span>
+          </div>
+      `;
+
+      part.steps.forEach((st, idx) => {
+        const isDone = typeof isStepDone === 'function' && isStepDone(st.id);
+        const linkHtml = st.link ? `<button class="rm-link-btn" onclick="openDetail('${st.link.kind}', '${st.link.id}')">${st.link.label} ↗</button>` : '';
+
+        html += `
+          <div class="roadmap-item ${isDone ? 'done' : ''}" data-step-id="${st.id}">
+            <div class="rmi-left">
+              <span class="rmi-num">${String(idx + 1).padStart(2, '0')}</span>
+              <button class="rmi-check ${isDone ? 'checked' : ''}" onclick="toggleStepRoadmap('${st.id}')" aria-label="Schritt abhaken">
+                ${isDone ? '✓' : ''}
+              </button>
+            </div>
+            <div class="rmi-body">
+              <div class="rmi-meta">
+                <span class="rmi-phase">Part ${part.num} · ${part.timeframe}</span>
+                <span class="rmi-time">Dauer: ${st.time}</span>
+              </div>
+              <h3>${st.title}</h3>
+              <p>${st.desc}</p>
+              ${st.hint ? `<div class="rmi-hint"><b>Praxis-Tipp:</b> ${st.hint}</div>` : ''}
+              ${linkHtml ? `<div class="rmi-actions">${linkHtml}</div>` : ''}
+            </div>
+          </div>
+        `;
+      });
+      html += '</div>';
+    });
+
+    html += '</div>';
+  }
+
   container.innerHTML = html;
 }
 

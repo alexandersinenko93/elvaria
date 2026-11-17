@@ -126,10 +126,46 @@
 }
 .hub-pill b { display: inline; font-family: inherit; font-size: inherit; color: var(--gold-light); margin: 0; }
 
-/* ── Roadmap Timeline ── */
+/* ── Roadmap Timeline & Mode Switcher ── */
 .roadmap-head { margin-bottom: 24px; }
-.roadmap-head h2 { font-family: var(--font-serif); font-size: clamp(24px, 4vw, 30px); color: #FFFFFF; margin-bottom: 6px; }
+.roadmap-head h2 { font-family: var(--font-serif); font-size: clamp(24px, 4vw, 32px); color: #FFFFFF; margin-bottom: 6px; }
 .roadmap-head p { font-size: 14.5px; color: var(--ink-secondary); }
+.rm-mode-bar { margin-top: 18px; }
+.rm-mode-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+.rm-filter-toolbar { margin-bottom: 24px; }
+
+/* ── Macro Roadmap (Die 6 Phasen) ── */
+.macro-roadmap-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  gap: 20px; margin-bottom: 40px;
+}
+.macro-part-card {
+  background: var(--bg-card); border: 1px solid var(--border-hairline); border-radius: var(--r-lg);
+  padding: clamp(20px, 4vw, 26px); box-shadow: var(--sh-sm); backdrop-filter: blur(20px);
+  display: flex; flex-direction: column; transition: all 0.22s ease;
+}
+.macro-part-card:hover { transform: translateY(-3px); border-color: var(--border-gold); box-shadow: var(--sh-md); }
+.macro-part-card.full { border-color: rgba(52, 132, 93, 0.4); background: rgba(20, 36, 30, 0.4); }
+.mpc-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.mpc-badge { font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: var(--r-pill); background: rgba(255, 255, 255, 0.05); color: var(--ink-secondary); }
+.mpc-badge.done { background: rgba(52, 132, 93, 0.2); color: #4ADE80; }
+.macro-part-card h3 { font-family: var(--font-serif); font-size: 20px; color: #FFFFFF; margin-bottom: 8px; }
+.mpc-lead { font-size: 13px; color: var(--ink-secondary); line-height: 1.5; margin-bottom: 14px; }
+.mpc-pbar { height: 4px; border-radius: var(--r-pill); background: rgba(255, 255, 255, 0.08); overflow: hidden; margin-bottom: 14px; }
+.mpc-pbar i { display: block; height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold-light)); transition: width 0.3s ease; }
+.mpc-steps-preview { display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px; flex: 1; }
+.mpc-mini-step { font-size: 12px; color: var(--ink-secondary); display: flex; gap: 8px; align-items: baseline; }
+.mpc-mini-step i { font-style: normal; font-size: 11px; color: var(--gold); }
+.mpc-mini-step.done { color: #CBD5E1; text-decoration: line-through; opacity: 0.7; }
+.mpc-mini-step.done i { color: #4ADE80; text-decoration: none; }
+.mpc-btn {
+  font-size: 12px; font-weight: 600; color: var(--gold); background: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.25); border-radius: var(--r-pill); padding: 9px 16px;
+  cursor: pointer; transition: all 0.18s ease; text-align: center; margin-top: auto;
+}
+.mpc-btn:hover { background: var(--gold); color: var(--bg-obsidian); box-shadow: 0 0 12px var(--gold-glow); }
+
+/* ── Micro Steps Detail Styles ── */
 .roadmap-timeline-list { display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px; }
 .roadmap-item {
   background: var(--bg-card); border: 1px solid var(--border-hairline); border-radius: var(--r-md);
@@ -150,10 +186,20 @@
 .rmi-meta { display: flex; gap: 14px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-tertiary); margin-bottom: 6px; }
 .rmi-phase { color: var(--gold); font-weight: 600; }
 .rmi-body h3 { font-family: var(--font-serif); font-size: 17px; color: #FFFFFF; margin-bottom: 8px; }
-.rmi-body p { font-size: 13.5px; color: var(--ink-secondary); line-height: 1.55; margin-bottom: 12px; }
-.rmi-subtasks { display: flex; flex-direction: column; gap: 6px; }
-.rmi-task { display: flex; gap: 10px; font-size: 12.5px; color: var(--ink-secondary); }
-.rmi-task i { color: var(--gold); font-style: normal; }
+.rmi-body p { font-size: 13.5px; color: var(--ink-secondary); line-height: 1.55; margin-bottom: 10px; }
+.rmi-hint {
+  background: rgba(212, 175, 55, 0.05); border-left: 2px solid var(--gold);
+  padding: 8px 12px; border-radius: 0 4px 4px 0; font-size: 12px; color: var(--gold-light);
+  margin-top: 10px; line-height: 1.45;
+}
+.rmi-hint b { color: var(--gold); }
+.rmi-actions { margin-top: 12px; display: flex; gap: 8px; }
+.rm-link-btn {
+  font-size: 11.5px; font-weight: 600; color: var(--gold); background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-hairline); border-radius: var(--r-pill); padding: 6px 14px;
+  cursor: pointer; transition: all 0.16s ease; display: inline-flex; align-items: center; gap: 4px;
+}
+.rm-link-btn:hover { border-color: var(--border-gold); color: #FFFFFF; background: rgba(212, 175, 55, 0.12); }
 
 @media (max-width: 768px) {
   .roadmap-item { flex-direction: column; gap: 14px; }
