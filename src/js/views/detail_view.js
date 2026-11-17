@@ -2,12 +2,12 @@
  * ELVARIA Detail & Tutorial View
  * Ultra-Luxury Presentation for Platforms and Yoga + X Concepts
  */
-if (typeof RETURN_TO === 'undefined') window.RETURN_TO = null;
-if (typeof RETURN_Y === 'undefined') window.RETURN_Y = null;
-if (typeof CURR === 'undefined') window.CURR = null;
-if (typeof NAVLIST === 'undefined') window.NAVLIST = null;
-if (typeof FROM_HASH === 'undefined') window.FROM_HASH = false;
-if (typeof VIEWS === 'undefined') window.VIEWS = ['konzept', 'plat', 'ideen', 'roadmap', 'detail'];
+window.RETURN_TO = window.RETURN_TO || null;
+window.RETURN_Y = window.RETURN_Y || null;
+window.CURR = window.CURR || null;
+window.NAVLIST = window.NAVLIST || null;
+window.FROM_HASH = window.FROM_HASH || false;
+window.VIEWS = window.VIEWS || ['konzept', 'plat', 'ideen', 'roadmap', 'detail'];
 
 function openDetail(kind, id, nav, seg) {
   if (nav !== undefined) NAVLIST = nav;
@@ -62,24 +62,40 @@ function openDetail(kind, id, nav, seg) {
       `;
     }
     const AU = {
-      ok: ['#2C6A4E', '#142a20', 'Nimmt auf'],
-      bedingt: ['#8A5A00', '#2a2010', 'Nimmt auf — mit Hürde'],
-      unklar: ['#5A6470', '#1c222a', 'Ungeklärt'],
-      nein: ['#9A2B2B', '#2a1414', 'Nimmt nicht auf']
+      ok: ['#34845D', 'status-ok', 'Nimmt auf'],
+      bedingt: ['#D4AF37', 'status-warn', 'Nimmt auf — mit Hürde'],
+      unklar: ['#67778A', 'status-unk', 'Ungeklärt'],
+      nein: ['#C24538', 'status-err', 'Nimmt nicht auf']
     };
     const au = AU[p.auf] || AU.unklar;
     const dFacts = $('#dFacts');
     if (dFacts) {
       dFacts.innerHTML = `
-        <div class="fact" style="border-left:3px solid ${au[0]};background:${au[1]};padding:14px 16px;border-radius:var(--r-sm)">
-          <span>Aufnahme-Status &middot; ${au[2]}</span>
-          <b style="color:#FFF">${p.aufLab}</b><br><span style="font-weight:400;opacity:.85;font-size:12.5px">${p.aufSub}</span>
+        <div class="fact fact-status ${au[1]}">
+          <div class="fact-head"><span class="fact-dot"></span><span class="fact-label">Aufnahme-Status &middot; ${au[2]}</span></div>
+          <b class="fact-val">${p.aufLab}</b>
+          <span class="fact-sub">${p.aufSub}</span>
         </div>
-        <div class="fact"><span>${p.auf === 'nein' ? 'Was das bedeutet' : p.auf === 'unklar' ? 'So klärst du es' : 'Wie Elvaria reinkommt'}</span><b>${p.aufWie || p.weg}</b></div>
-        <div class="fact"><span>Gebühr / Provision</span><b>${p.kostet}</b></div>
-        <div class="fact"><span>Dauer bis live</span><b>${p.dauer}</b></div>
-        <div class="fact jumpbox"><span>Vertiefung</span>
-          <button class="jumpto" data-jump="deep">Vollständiger Onboarding-Guide (${(DEEP[p.id] || { deep: [] }).deep.length} Schritte, Checklisten &amp; Vorlagen) <i>→</i></button>
+        <div class="fact fact-metric">
+          <span class="fact-label">Gebühr / Provision</span>
+          <b class="fact-val">${p.kostet}</b>
+          <span class="fact-sub">Konditionen &amp; Marge</span>
+        </div>
+        <div class="fact fact-metric">
+          <span class="fact-label">Dauer bis live</span>
+          <b class="fact-val">${p.dauer}</b>
+          <span class="fact-sub">Onboarding-Zeithorizont</span>
+        </div>
+        <div class="fact fact-wide fact-strategy">
+          <div class="fact-head"><span class="fact-badge-mini">Zugangs-Strategie</span><span class="fact-label">${p.auf === 'nein' ? 'Auswirkung' : p.auf === 'unklar' ? 'Klärungsschritt' : 'Wie Elvaria reinkommt'}</span></div>
+          <b class="fact-val fact-val-text">${p.aufWie || p.weg}</b>
+        </div>
+        <div class="fact fact-guide jumpbox">
+          <span class="fact-label">Vertiefung &amp; Leitfaden</span>
+          <button class="jumpto" data-jump="deep">
+            <span class="jumpto-title">Vollständiger Onboarding-Guide</span>
+            <span class="jumpto-sub">${(DEEP[p.id] || { deep: [] }).deep.length} Schritte, Checklisten &amp; Vorlagen <i>→</i></span>
+          </button>
         </div>
       `;
     }
@@ -127,14 +143,26 @@ function openDetail(kind, id, nav, seg) {
     const dFacts = $('#dFacts');
     if (dFacts) {
       dFacts.innerHTML = `
-        <div class="fact" style="border-left:3px solid var(--gold);background:rgba(212,175,55,0.08);padding:14px 16px;border-radius:var(--r-sm)">
-          <span>Recherchiertes Praxisbeispiel &middot; Markt-Benchmark</span>
-          <b>${it.research}</b>
+        <div class="fact fact-wide fact-benchmark">
+          <div class="fact-head"><span class="fact-badge-mini">Benchmark</span><span class="fact-label">Recherchiertes Praxisbeispiel &middot; Markt</span></div>
+          <b class="fact-val fact-val-text">${it.research}</b>
         </div>
-        <div class="fact"><span>90-Minuten Ablauf</span><b>${it.flow}</b></div>
-        <div class="fact"><span>Zielgruppe &amp; Appeal</span><b>${it.target}</b></div>
-        <div class="fact"><span>Equipment &amp; Raum-Deal</span><b>${it.setup}</b></div>
-        <div class="fact"><span>Rechtlicher Check &amp; HWG</span><b>${it.legal}</b></div>
+        <div class="fact fact-metric">
+          <span class="fact-label">90-Minuten Ablauf</span>
+          <b class="fact-val fact-val-text">${it.flow}</b>
+        </div>
+        <div class="fact fact-metric">
+          <span class="fact-label">Zielgruppe &amp; Appeal</span>
+          <b class="fact-val">${it.target}</b>
+        </div>
+        <div class="fact fact-metric">
+          <span class="fact-label">Equipment &amp; Raum-Deal</span>
+          <b class="fact-val">${it.setup}</b>
+        </div>
+        <div class="fact fact-metric fact-legal">
+          <span class="fact-label">Rechtlicher Check &amp; HWG</span>
+          <b class="fact-val">${it.legal}</b>
+        </div>
       `;
     }
     renderSteps(it.s, 'i-' + id);
@@ -212,10 +240,8 @@ function bindDetailCta(kind, id) {
   if (!ctaBox) return;
   const printBtn = ctaBox.querySelector('[data-act="print"]');
   if (printBtn) printBtn.onclick = () => window.print();
-
   const linkBtn = ctaBox.querySelector('[data-act="link"]');
   if (linkBtn) linkBtn.onclick = () => copyText(window.location.href, 'Link kopiert');
-
   const copyBtn = ctaBox.querySelector('[data-act="copy"]');
   if (copyBtn) copyBtn.onclick = () => {
     if (kind === 'p') {
@@ -226,19 +252,14 @@ function bindDetailCta(kind, id) {
       if (it) copyText(it.s.map((s, i) => `${i + 1}. ${s[0]}: ${s[1]}`).join('\n'), 'Schritte kopiert');
     }
   };
-
   const markBtn = $('#markAll');
   if (markBtn) markBtn.onclick = () => {
     const key = (kind === 'p' ? 'p-' : 'i-') + id;
     const len = (kind === 'p') ? (((window.P || []).find(x => x.id === id) || { steps: [] }).steps.length) : ((((window.I || [])[+id] || { s: [] }).s.length));
-    const dn = progOf(key, len);
-    const setAll = dn !== len;
+    const dn = progOf(key, len), setAll = dn !== len;
     DONE[key] = Array(len).fill(setAll);
     saveDone();
-    $$('#dSteps .step').forEach(el => {
-      el.classList.toggle('done', setAll);
-      el.setAttribute('aria-checked', setAll ? 'true' : 'false');
-    });
+    $$('#dSteps .step').forEach(el => { el.classList.toggle('done', setAll); el.setAttribute('aria-checked', setAll ? 'true' : 'false'); });
     if (typeof updateBar === 'function') updateBar(key, len);
     if (typeof refreshProgress === 'function') refreshProgress();
   };
