@@ -83,8 +83,8 @@ function renderDash() {
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
         <div>
-          <b>Das Yoga + X Kompendium erkunden (24 Konzepte)</b>
-          <p>Kombinationen: Boxen, Soundbath, Keramik, SUP, Coffee Cupping, Kokedama, Vagus-Reset &amp; Galaxy Night mit realen Benchmarks &amp; Flows.</p>
+          <b>Das Yoga + X Kompendium erkunden (30 Konzepte inkl. 6 Hamburger Piloten)</b>
+          <p>Kombinationen: Team Reset (B2B), Matcha &amp; Matte, Hafenlicht Kunst-Flow, Boxen, Soundbath, Keramik, SUP &amp; Kokedama mit realen Benchmarks &amp; Flows.</p>
         </div>
         <span class="dql-arrow">→</span>
       </div>
@@ -94,25 +94,26 @@ function renderDash() {
     <div class="dash-hamburg-hub">
       <div class="hub-box">
         <span class="cps-step">SÄULE 01 · RAUM-DEALS</span>
-        <b>Verifizierte Partner-Studios</b>
-        <p>Stundenweise Anmietung (35–50 €/Std.) ohne 2.000 € Festmiet-Risiko:</p>
+        <b>Verifizierte Partner-Studios &amp; Lofts</b>
+        <p>Stundenweise Anmietung (35–60 €/Std.) ohne 2.000 € Festmiet-Risiko:</p>
         <div class="hub-pills">
+          <span class="hub-pill"><b>Yoga im Hof (Barmbek-Uhlenhorst)</b> · 80 m², 20 Matten vor Ort, 60 € brutto/90 Min. (P03 Pilot-Venue)</span>
+          <span class="hub-pill"><b>Soulspaces (Barmbek-Süd)</b> · 82 m² Hinterhof-Oase, 140 €/4h (P03 Backup &amp; Yin/Sound)</span>
+          <span class="hub-pill"><b>Y8 Kunstraum (Eimsbüttel)</b> · Kunst &amp; Bewegung für Hafenlicht Offsite (P02)</span>
           <span class="hub-pill"><b>Mattenplatz (Hohenfelde)</b> · 90 m² Loft an der Alster, ab 50 €/Std. (25 Matten)</span>
-          <span class="hub-pill"><b>Soulspaces (Barmbek)</b> · 82 m² Hinterhof-Oase, ab 45 €/Std. (Yin &amp; Soundbath)</span>
           <span class="hub-pill"><b>grow. (Karoviertel)</b> · 60 m² Altbau-Loft, ab 40 €/Std. (Zentrale Szene-Lage)</span>
-          <span class="hub-pill"><b>YogaEasy Space (Hoheluft)</b> · 54 m², ab 40 €/Std. (Küche &amp; 28 Matten)</span>
-          <span class="hub-pill"><b>The Shala (Eimsbüttel)</b> · 140 m² Feng-Shui Loft für High-End Signature Retreats</span>
         </div>
       </div>
       <div class="hub-box">
-        <span class="cps-step">SÄULE 02 · ROOFTOPS</span>
-        <b>Spektakuläre Open-Air Spots</b>
-        <p>Exklusive Hamburger Dachterrassen mit verlässlicher Schlechtwetter-Alternative:</p>
+        <span class="cps-step">SÄULE 02 · ROOFTOPS &amp; B2B-HUBS</span>
+        <b>Firmenflächen &amp; Offsite-Spots</b>
+        <p>Kundenräume (0 €) &amp; urbane Dachterrassen mit Schlechtwetter-Alternative:</p>
         <div class="hub-pills">
+          <span class="hub-pill"><b>Firmenraum beim Kunden (Mobil)</b> · 0 € Raumkosten für Team Reset (1.090 € netto / 63,9% DB)</span>
+          <span class="hub-pill"><b>betahaus Schanze (Arena &amp; Innospace)</b> · 85 m² Workshop-Fläche für B2B Innovations-Teams</span>
           <span class="hub-pill"><b>OutOfOffice (HafenCity)</b> · 160 m² Dachterrasse mit Elphi-Blick + 260 m² Indoor</span>
-          <span class="hub-pill"><b>Sturmfreie Bude (Alstertower)</b> · 13. OG Panoramablick für Sunrise Sessions</span>
-          <span class="hub-pill"><b>The Hive Rooftop (Karoviertel)</b> · Sonnige Hinterhof-Dachterrasse über 2 Etagen</span>
-          <span class="hub-pill"><b>Kulturkirche &amp; Speicher</b> · Historische Backstein-Gewölbe für Galaxy Nights</span>
+          <span class="hub-pill"><b>Kulturhaus Eidelstedt</b> · Kreativraum 76 m² &amp; Raum 7 (95 m²) für Kultur-Kooperationen</span>
+          <span class="hub-pill"><b>Sturmfreie Bude (Alstertower)</b> · 13. OG Panoramablick für VIP Executive Sessions</span>
         </div>
       </div>
       <div class="hub-box">
@@ -120,11 +121,11 @@ function renderDash() {
         <b>Das „X“: Kooperationen &amp; Kultur</b>
         <p>Echte Experten-Partner für die Differenzierung vom klassischen Kursplan:</p>
         <div class="hub-pills">
+          <span class="hub-pill"><b>The Chae Bar &amp; PAPER &amp; TEA</b> · Matcha-Portionen (4,25 €/Kopf) für Matcha &amp; Matte (P03)</span>
+          <span class="hub-pill"><b>smileandpeace (Ottensen)</b> · Handaufbau-Keramik &amp; Brennservice für Tonspur (P06)</span>
+          <span class="hub-pill"><b>Mindblossom (Winterhude)</b> · 432 Hz Kristallklangschalen-Begleitung für Leise Welle</span>
           <span class="hub-pill"><b>Public Coffee &amp; Elbgold</b> · Barista-Cupping &amp; Kaffeesensorik sonntags</span>
-          <span class="hub-pill"><b>Swawole Atelier &amp; Chamotte</b> · Keramik &amp; Drehton für Clay &amp; Calm</span>
-          <span class="hub-pill"><b>SUP CLUB Hamburg (Isekai)</b> · 20x Yoga-Boards mit Fleet-Verankerung</span>
           <span class="hub-pill"><b>HfMT Musiker-Netzwerk</b> · 100% GEMA-freie Handpan-, Cello- &amp; Harfen-Livebegleitung</span>
-          <span class="hub-pill"><b>Blumenmanufaktur Schanze</b> · Kokedama-Mooskugeln &amp; Botanical Art</span>
         </div>
       </div>
       <div class="hub-box">
@@ -132,10 +133,10 @@ function renderDash() {
         <b>Das mobile „Studio im Kofferraum“</b>
         <p>Ausrüstung auf Abruf – maximale Flexibilität bei minimaler Kapitalbindung:</p>
         <div class="hub-pills">
+          <span class="hub-pill"><b>18–24 Premium Event-Matten:</b> 3 Mattensäcke im Kombi, sofort einsatzbereit</span>
           <span class="hub-pill"><b>Silent Disco Kopfhörer:</b> 25 Stk. + 3 Sender ca. 125–140 €/WE (Lärmschutz-Joker)</span>
           <span class="hub-pill"><b>432 Hz Kristallschalen:</b> 7-teiliges Quarz-Set in Schutztaschen (Top-Marge)</span>
           <span class="hub-pill"><b>Blackroll Faszien-Set:</b> 15er Rollen- &amp; Duoball-Bundle für Runner Recovery</span>
-          <span class="hub-pill"><b>UV-Schwarzlicht Fluter:</b> 4x 50W LED (395nm) &amp; Bio-Neon-Körperfarben</span>
           <span class="hub-pill"><b>RDX Box-Equipment:</b> 12 Paar Focus Mitts &amp; waschbare Quickwraps</span>
         </div>
       </div>

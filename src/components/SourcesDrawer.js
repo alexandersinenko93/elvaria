@@ -111,6 +111,7 @@
     if (k === 'locations') return c.includes('location') || c.includes('event');
     if (k === 'markt') return c.includes('markt') || c.includes('preis') || c.includes('wettbewerb');
     if (k === 'förderung') return c.includes('förderung') || c.includes('netzwerk') || c.includes('bgf');
+    if (k === 'benchmarks') return c.includes('benchmark') || c.includes('global') || c.includes('international');
     return c.includes(k);
   }
 
